@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STRATA — see what you sleep on</title>
+<meta name="description" content="A premium mattress that opens up: six layers named, measured and shown before you pay. Cotton-tencel cover, open-cell foam, natural latex, 1,040 pocket springs. From €1,190.">
+<meta name="theme-color" content="#0E1420">
+<meta property="og:title" content="STRATA — see what you sleep on">
+<meta property="og:description" content="Six layers, every one named and measured. From €1,190.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230E1420'/><g fill='%23C8A97E'><rect x='7' y='9' width='18' height='3' rx='1.5'/><rect x='7' y='14.5' width='18' height='3' rx='1.5' opacity='.7'/><rect x='7' y='20' width='18' height='3' rx='1.5' opacity='.45'/></g></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Shared SVG patterns: defined once, used by the cutaway and the material panels -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <pattern id="weave" width="7" height="7" patternUnits="userSpaceOnUse">
+      <path d="M0 3.5 H7" stroke="#0E1420" stroke-opacity=".32" stroke-width="1"/>
+    </pattern>
+    <pattern id="cells" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="5" cy="5" r="2.1" fill="#0E1420" fill-opacity=".26"/>
+      <circle cx="13" cy="12" r="1.5" fill="#0E1420" fill-opacity=".2"/>
+    </pattern>
+    <pattern id="perf" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="13" cy="13" r="5.4" fill="#0E1420" fill-opacity=".3"/>
+    </pattern>
+    <pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(38)">
+      <path d="M0 0 V10" stroke="#0E1420" stroke-opacity=".22" stroke-width="2.6"/>
+    </pattern>
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2=".3">
+      <stop offset="0%" stop-color="#fff" stop-opacity=".10"/>
+      <stop offset="42%" stop-color="#fff" stop-opacity=".03"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<header class="nav">
+  <a href="#top" class="nav__logo">STRATA</a>
+  <nav class="nav__menu">
+    <a href="#layers">Layers</a>
+    <a href="#airflow">Airflow</a>
+    <a href="#firmness">Firmness</a>
+    <a href="#sizes">Sizes</a>
+  </nav>
+  <a href="#order" class="nav__cta">From €1,190</a>
+</header>
+
+<main id="top">
+
+  <!-- ══ HERO ══ -->
+  <section class="hero">
+    <div class="hero__glow" aria-hidden="true"></div>
+
+    <div class="hero__col">
+      <p class="eyebrow reveal">Six layers · nothing hidden</p>
+      <h1 class="settle" data-words>See what<br>you sleep on.</h1>
+      <p class="hero__sub reveal">Most mattresses ask you to trust a sealed rectangle. This one opens up — every layer named, measured and shown before you pay.</p>
+      <div class="hero__cta reveal">
+        <a href="#layers" class="btn btn--solid">Open the cutaway</a>
+        <a href="#sizes" class="btn">Compare sizes</a>
+      </div>
+      <div class="facts reveal">
+        <div><b class="num">€1,190</b><span>from, single</span></div>
+        <div><b class="num">1,040</b><span>pocket springs / m²</span></div>
+        <div><b class="num">10 yr</b><span>warranty</span></div>
+      </div>
+    </div>
+
+    <!-- Cursor parallax lives on this wrapper -->
+    <div class="hero__art tilt" id="tilt">
+      <svg class="slab slab--rest" viewBox="0 0 560 400" aria-label="Mattress cross-section">
+        <ellipse cx="280" cy="368" rx="212" ry="15" fill="#000" opacity=".42"/>
+        <g class="slab__breathe">
+          <rect x="66" y="294" width="428" height="46" rx="9" fill="#39424F"/>
+          <rect x="66" y="294" width="428" height="46" rx="9" fill="url(#hatch)"/>
+          <rect x="66" y="202" width="428" height="92" rx="7" fill="#4C5769"/>
+          <g class="coils" stroke="#0E1420" stroke-opacity=".38" stroke-width="2.4" fill="none">
+            <path d="M92 212 q13 12 0 24 q-13 12 0 24 q13 12 0 24"/>
+            <path d="M136 212 q13 12 0 24 q-13 12 0 24 q13 12 0 24"/>
+            <path d="M180 212 q13 12 0 24 q-13 12 0 24 q13 12 0 24"/>
+            <path d="M224 212 q13 12 0 24 q-13 12 0 24 q13 12 0 24"/>
+            <path d="M268 212 q13 12 0 24 q-13 12 0 24 q13 12 0 24"/>
+            <path d="M312 212 q13 12 0 24 q-13 12 0 24 q13 12 0 24"/>
+            <path d="M356 212 q13 12 0 24 q-13 12 0 24 q13 12 0 24"/>
+            <path d="M400 212 q13 12 0 24 q-13 12 0 24 q13 12 0 24"/>
+            <path d="M444 212 q13 12 0 24 q-13 12 0 24 q13 12 0 24"/>
+          </g>
+          <rect x="66" y="202" width="428" height="92" rx="7" fill="none" stroke="var(--sand)" stroke-opacity=".55" stroke-width="3"/>
+          <rect x="66" y="150" width="428" height="52" rx="6" fill="#7E8A9B"/>
+          <rect x="66" y="150" width="428" height="52" rx="6" fill="url(#perf)"/>
+          <rect x="66" y="104" width="428" height="46" rx="6" fill="#A2ABB8"/>
+          <rect x="66" y="104" width="428" height="46" rx="6" fill="url(#cells)"/>
+          <rect x="66" y="78" width="428" height="26" rx="9" fill="#D8D2C6"/>
+          <rect x="66" y="78" width="428" height="26" rx="9" fill="url(#weave)"/>
+          <rect x="66" y="78" width="428" height="262" rx="9" fill="url(#sheen)"/>
+        </g>
+      </svg>
+    </div>
+
+    <p class="cue reveal"><span></span>Scroll to take it apart</p>
+  </section>
+
+  <!-- ══ THE CUTAWAY — pinned, scroll-driven ══ -->
+  <section class="pin" id="layers">
+    <div class="pin__stage">
+      <div class="pin__inner">
+
+        <div class="pin__head">
+          <p class="eyebrow">The cutaway</p>
+          <h2 class="settle-s" data-words>Six layers.<br>Take them apart.</h2>
+          <div class="prog" aria-hidden="true">
+            <i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i>
+            <i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i>
+          </div>
+        </div>
+
+        <svg class="cut" viewBox="0 0 700 470" aria-label="Mattress layers separating">
+          <!-- Each layer carries its own separation distance via --dy -->
+          <g class="L" style="--dy:-32">
+            <rect x="30" y="40" width="300" height="24" rx="9" fill="#D8D2C6"/>
+            <rect x="30" y="40" width="300" height="24" rx="9" fill="url(#weave)"/>
+            <g class="lab" style="--n:0">
+              <path d="M336 52 H358" /><circle cx="336" cy="52" r="3"/>
+              <text class="lab__t" x="368" y="49">Cover</text>
+              <text class="lab__s" x="368" y="65">Cotton-tencel, 300 g/m², removable</text>
+            </g>
+          </g>
+
+          <g class="L" style="--dy:10">
+            <rect x="30" y="64" width="300" height="48" rx="6" fill="#A2ABB8"/>
+            <rect x="30" y="64" width="300" height="48" rx="6" fill="url(#cells)"/>
+            <g class="lab" style="--n:1">
+              <path d="M336 88 H358" /><circle cx="336" cy="88" r="3"/>
+              <text class="lab__t" x="368" y="85">Comfort</text>
+              <text class="lab__s" x="368" y="101">Open-cell memory foam with gel, 50 mm</text>
+            </g>
+          </g>
+
+          <g class="L" style="--dy:46">
+            <rect x="30" y="112" width="300" height="42" rx="6" fill="#7E8A9B"/>
+            <rect x="30" y="112" width="300" height="42" rx="6" fill="url(#perf)"/>
+            <g class="lab" style="--n:2">
+              <path d="M336 133 H358" /><circle cx="336" cy="133" r="3"/>
+              <text class="lab__t" x="368" y="130">Transition</text>
+              <text class="lab__s" x="368" y="146">Natural latex, 65–85 kg/m³, 40 mm</text>
+            </g>
+          </g>
+
+          <g class="L" style="--dy:90">
+            <rect x="30" y="154" width="300" height="104" rx="7" fill="#4C5769"/>
+            <g class="coils" stroke="#0E1420" stroke-opacity=".36" stroke-width="2.3" fill="none">
+              <path d="M58 166 q13 13 0 26 q-13 13 0 26 q13 13 0 26"/>
+              <path d="M106 166 q13 13 0 26 q-13 13 0 26 q13 13 0 26"/>
+              <path d="M154 166 q13 13 0 26 q-13 13 0 26 q13 13 0 26"/>
+              <path d="M202 166 q13 13 0 26 q-13 13 0 26 q13 13 0 26"/>
+              <path d="M250 166 q13 13 0 26 q-13 13 0 26 q13 13 0 26"/>
+              <path d="M298 166 q13 13 0 26 q-13 13 0 26 q13 13 0 26"/>
+            </g>
+            <g class="lab" style="--n:3">
+              <path d="M336 206 H358" /><circle cx="336" cy="206" r="3"/>
+              <text class="lab__t" x="368" y="203">Support</text>
+              <text class="lab__s" x="368" y="219">1,040 pocket springs/m², 7 zones</text>
+            </g>
+          </g>
+
+          <!-- The edge is a perimeter, not a sheet: it rides with the springs -->
+          <g class="L L--edge" style="--dy:90">
+            <rect x="30" y="154" width="300" height="104" rx="7" fill="none" stroke="var(--sand)" stroke-opacity=".8" stroke-width="3"/>
+            <g class="lab" style="--n:4">
+              <path d="M336 250 H358" /><circle cx="336" cy="250" r="3"/>
+              <text class="lab__t" x="368" y="247">Edge</text>
+              <text class="lab__s" x="368" y="263">Reinforced perimeter — a frame, not a layer</text>
+            </g>
+          </g>
+
+          <g class="L" style="--dy:126">
+            <rect x="30" y="258" width="300" height="34" rx="9" fill="#39424F"/>
+            <rect x="30" y="258" width="300" height="34" rx="9" fill="url(#hatch)"/>
+            <g class="lab" style="--n:5">
+              <path d="M336 275 H358" /><circle cx="336" cy="275" r="3"/>
+              <text class="lab__t" x="368" y="272">Base</text>
+              <text class="lab__s" x="368" y="288">High-density foam, 30 mm</text>
+            </g>
+          </g>
+        </svg>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MATERIAL PANELS — the cutaway patterns, blown up ══ -->
+  <section class="sec">
+    <p class="eyebrow reveal">Materials</p>
+    <h2 class="reveal">Three surfaces doing three jobs.</h2>
+    <div class="mats">
+      <article class="mat reveal">
+        <div class="mat__pic" style="background:#D8D2C6">
+          <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="200" height="200" fill="url(#weave)" transform="scale(3)"/>
+          </svg>
+        </div>
+        <h3>Woven cover</h3>
+        <p>Cotton and tencel at 300 g/m². Zips off and goes in the machine at 40°, which is the only honest way to keep a mattress clean.</p>
+      </article>
+      <article class="mat reveal">
+        <div class="mat__pic" style="background:#A2ABB8">
+          <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="200" height="200" fill="url(#cells)" transform="scale(2.4)"/>
+          </svg>
+        </div>
+        <h3>Open-cell foam</h3>
+        <p>Cells that connect instead of sealing. Gel through the pour draws heat sideways rather than holding it against your back.</p>
+      </article>
+      <article class="mat reveal">
+        <div class="mat__pic" style="background:#7E8A9B">
+          <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="200" height="200" fill="url(#perf)" transform="scale(1.8)"/>
+          </svg>
+        </div>
+        <h3>Perforated latex</h3>
+        <p>Natural latex at 65–85 kg/m³, punched through top to bottom. Springy where foam is slow, and it still holds shape after a decade.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══ STATEMENT — слова загораются по мере прокрутки ══ -->
+  <section class="say">
+    <p class="say__line lit" data-words>You will spend a third of the next ten years here. It should be the most considered thing you own.</p>
+  </section>
+
+  <!-- ══ AIRFLOW ══ -->
+  <section class="sec sec--split" id="airflow">
+    <div class="reveal">
+      <p class="eyebrow">Airflow</p>
+      <h2 class="settle-s" data-words>Heat leaves<br>through the sides.</h2>
+      <p class="lead">Foam alone traps warmth against your back. Perforated latex and an open spring core give it somewhere to go — out through the ventilated border, not into the mattress.</p>
+      <dl class="rows">
+        <div><dt>01</dt><dd><b>Perforated latex</b><span>Vertical channels, not a sealed slab</span></dd></div>
+        <div><dt>02</dt><dd><b>Open spring core</b><span>Air moves between coils, not around them</span></dd></div>
+        <div><dt>03</dt><dd><b>Ventilated border</b><span>Mesh panel along both long sides</span></dd></div>
+      </dl>
+    </div>
+
+    <div class="reveal air">
+      <svg viewBox="0 0 620 500" aria-label="Airflow through the layers">
+        <ellipse cx="310" cy="436" rx="230" ry="14" fill="#000" opacity=".4"/>
+        <rect x="80" y="342" width="460" height="42" rx="9" fill="#39424F"/>
+        <rect x="80" y="238" width="460" height="104" rx="7" fill="#4C5769"/>
+        <g class="coils" stroke="#0E1420" stroke-opacity=".34" stroke-width="2.2" fill="none">
+          <path d="M112 250 q14 13 0 26 q-14 13 0 26 q14 13 0 26"/>
+          <path d="M176 250 q14 13 0 26 q-14 13 0 26 q14 13 0 26"/>
+          <path d="M240 250 q14 13 0 26 q-14 13 0 26 q14 13 0 26"/>
+          <path d="M304 250 q14 13 0 26 q-14 13 0 26 q14 13 0 26"/>
+          <path d="M368 250 q14 13 0 26 q-14 13 0 26 q14 13 0 26"/>
+          <path d="M432 250 q14 13 0 26 q-14 13 0 26 q14 13 0 26"/>
+          <path d="M496 250 q14 13 0 26 q-14 13 0 26 q14 13 0 26"/>
+        </g>
+        <rect x="80" y="182" width="460" height="56" rx="6" fill="#7E8A9B"/>
+        <rect x="80" y="182" width="460" height="56" rx="6" fill="url(#perf)"/>
+        <rect x="80" y="134" width="460" height="48" rx="6" fill="#A2ABB8"/>
+        <rect x="80" y="134" width="460" height="48" rx="6" fill="url(#cells)"/>
+        <rect x="80" y="108" width="460" height="26" rx="9" fill="#D8D2C6"/>
+        <rect x="80" y="108" width="460" height="26" rx="9" fill="url(#weave)"/>
+        <g class="vent" stroke="var(--sand)" stroke-opacity=".5" stroke-width="2" fill="none">
+          <path d="M80 258 H62"/><path d="M80 282 H62"/><path d="M80 306 H62"/>
+          <path d="M540 258 H558"/><path d="M540 282 H558"/><path d="M540 306 H558"/>
+        </g>
+        <g class="flow flow--a">
+          <path d="M170 330 C170 290 148 276 148 240 C148 212 128 200 96 200 C74 200 62 186 58 166"/>
+          <path d="M310 334 C310 292 310 278 310 242 C310 214 310 198 310 166 C310 142 310 130 310 86"/>
+          <path d="M450 330 C450 290 472 276 472 240 C472 212 492 200 524 200 C546 200 558 186 562 166"/>
+        </g>
+        <g class="flow flow--b">
+          <path d="M240 326 C240 294 224 282 224 248 C224 220 206 210 178 210"/>
+          <path d="M380 326 C380 294 396 282 396 248 C396 220 414 210 442 210"/>
+        </g>
+        <g fill="var(--sand)" opacity=".9">
+          <path d="M58 166 l7 11 l-14 0 z"/><path d="M310 86 l7 11 l-14 0 z"/><path d="M562 166 l7 11 l-14 0 z"/>
+        </g>
+        <text class="air__cap" x="310" y="68">WARM AIR OUT</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══ FIRMNESS ══ -->
+  <section class="sec" id="firmness">
+    <div class="sec__head reveal">
+      <div>
+        <p class="eyebrow">Firmness</p>
+        <h2>Same six layers.<br>Different comfort core.</h2>
+      </div>
+      <p class="sec__note">Support and base never change — only the top two do. Price is identical across all three.</p>
+    </div>
+
+    <div class="firm">
+      <div class="firm__pick" role="tablist" aria-label="Firmness">
+        <button class="fcard" data-firm="soft" role="tab" aria-selected="false">
+          <span class="fcard__top"><b>Soft</b><i class="num">3 / 10</i></span>
+          <span class="fcard__who">Side sleepers and anyone under 70 kg.</span>
+        </button>
+        <button class="fcard is-on" data-firm="medium" role="tab" aria-selected="true">
+          <span class="fcard__top"><b>Medium</b><i class="num">5 / 10</i></span>
+          <span class="fcard__who">Most people, most positions. The safe pick.</span>
+        </button>
+        <button class="fcard" data-firm="firm" role="tab" aria-selected="false">
+          <span class="fcard__top"><b>Firm</b><i class="num">7.5 / 10</i></span>
+          <span class="fcard__who">Back and front sleepers, or over 100 kg.</span>
+        </button>
+        <p class="firm__swap">Swap firmness once, free, within the first 100 nights. We collect the old one.</p>
+      </div>
+
+      <div class="firm__art">
+        <svg viewBox="0 0 420 400" aria-label="Comfort core for the selected firmness">
+          <ellipse cx="210" cy="368" rx="176" ry="12" fill="#000" opacity=".4"/>
+          <rect x="34" y="316" width="352" height="34" rx="9" fill="#39424F"/>
+          <rect x="34" y="316" width="352" height="34" rx="9" fill="url(#hatch)"/>
+          <rect x="34" y="220" width="352" height="96" rx="7" fill="#4C5769"/>
+          <g class="coils" stroke="#0E1420" stroke-opacity=".34" stroke-width="2.2" fill="none">
+            <path d="M64 232 q13 12 0 24 q-13 12 0 24 q13 12 0 24"/>
+            <path d="M120 232 q13 12 0 24 q-13 12 0 24 q13 12 0 24"/>
+            <path d="M176 232 q13 12 0 24 q-13 12 0 24 q13 12 0 24"/>
+            <path d="M232 232 q13 12 0 24 q-13 12 0 24 q13 12 0 24"/>
+            <path d="M288 232 q13 12 0 24 q-13 12 0 24 q13 12 0 24"/>
+            <path d="M344 232 q13 12 0 24 q-13 12 0 24 q13 12 0 24"/>
+          </g>
+          <rect x="34" y="220" width="352" height="96" rx="7" fill="none" stroke="var(--sand)" stroke-opacity=".5" stroke-width="2.6"/>
+          <rect id="fLatex" x="34" y="178" width="352" height="42" rx="6" fill="#7E8A9B"/>
+          <rect id="fLatexP" x="34" y="178" width="352" height="42" rx="6" fill="url(#perf)"/>
+          <rect id="fFoam" x="34" y="130" width="352" height="48" rx="6" fill="#A2ABB8"/>
+          <rect id="fFoamP" x="34" y="130" width="352" height="48" rx="6" fill="url(#cells)"/>
+          <rect id="fCover" x="34" y="106" width="352" height="24" rx="9" fill="#D8D2C6"/>
+          <path id="fSink" fill="none" stroke="var(--sand)" stroke-width="1.6" stroke-dasharray="5 6" opacity=".85"/>
+          <text id="fSinkLab" class="lab__s" x="392" y="140" text-anchor="end"></text>
+        </svg>
+        <div class="firm__read">
+          <p class="eyebrow">Selected</p>
+          <p class="firm__name" id="fName">Medium</p>
+          <p class="firm__detail" id="fDetail"></p>
+          <dl class="specs" id="fSpecs"></dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAMILY ══ -->
+  <section class="sec sec--split">
+    <div class="reveal">
+      <p class="eyebrow">Two people</p>
+      <h2 class="settle-s" data-words>They roll over.<br>You stay asleep.</h2>
+      <p class="lead">Pocket springs move one at a time. A partner getting up at six travels through three or four coils, not across the whole bed — which is the single thing couples notice first.</p>
+      <dl class="rows">
+        <div><dt>7</dt><dd><b>Support zones</b><span>Softer at the shoulder, firmer under the hips</span></dd></div>
+        <div><dt>0</dt><dd><b>Shared dip</b><span>No middle valley, because no connected coils</span></dd></div>
+        <div><dt>2</dt><dd><b>Firmness in one bed</b><span>Split cores on King, if you sleep differently</span></dd></div>
+      </dl>
+    </div>
+    <div class="reveal">
+      <svg viewBox="0 0 620 380" aria-label="Motion isolation between two sleepers">
+        <rect x="40" y="240" width="540" height="70" rx="8" fill="#4C5769"/>
+        <g class="coils" stroke="#0E1420" stroke-opacity=".3" stroke-width="2" fill="none">
+          <path d="M70 250 q11 10 0 20 q-11 10 0 20 q11 10 0 20"/><path d="M110 250 q11 10 0 20 q-11 10 0 20 q11 10 0 20"/>
+          <path d="M150 250 q11 10 0 20 q-11 10 0 20 q11 10 0 20"/><path d="M190 250 q11 10 0 20 q-11 10 0 20 q11 10 0 20"/>
+          <path d="M230 250 q11 10 0 20 q-11 10 0 20 q11 10 0 20"/><path d="M270 250 q11 10 0 20 q-11 10 0 20 q11 10 0 20"/>
+          <path d="M310 250 q11 10 0 20 q-11 10 0 20 q11 10 0 20"/><path d="M350 250 q11 10 0 20 q-11 10 0 20 q11 10 0 20"/>
+          <path d="M390 250 q11 10 0 20 q-11 10 0 20 q11 10 0 20"/><path d="M430 250 q11 10 0 20 q-11 10 0 20 q11 10 0 20"/>
+          <path d="M470 250 q11 10 0 20 q-11 10 0 20 q11 10 0 20"/><path d="M510 250 q11 10 0 20 q-11 10 0 20 q11 10 0 20"/>
+          <path d="M550 250 q11 10 0 20 q-11 10 0 20 q11 10 0 20"/>
+        </g>
+        <rect x="40" y="214" width="540" height="26" rx="8" fill="#D8D2C6"/>
+        <rect x="40" y="214" width="540" height="26" rx="8" fill="url(#weave)"/>
+        <!-- one sleeper moves; the dip stays local -->
+        <path class="dip" d="M40 214 H120 C160 214 160 236 200 236 C240 236 240 214 280 214 H580" fill="none" stroke="var(--sand)" stroke-width="2" opacity=".9"/>
+        <circle class="ripple" cx="200" cy="228" r="26" fill="none" stroke="var(--sand)" stroke-width="1.5" opacity=".5"/>
+        <text class="lab__s" x="200" y="196" text-anchor="middle">movement here</text>
+        <text class="lab__s" x="460" y="196" text-anchor="middle">nothing here</text>
+        <path d="M420 204 H500" stroke="var(--sand)" stroke-opacity=".35" stroke-width="1" stroke-dasharray="3 4"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══ SIZE & PRICE ══ -->
+  <section class="sec" id="sizes">
+    <div class="sec__head reveal">
+      <div>
+        <p class="eyebrow">Size &amp; price</p>
+        <h2>Pick a size.<br>That is the whole price.</h2>
+      </div>
+      <p class="sec__note">Delivery, the 100-night trial and collection if you send it back are already in the number.</p>
+    </div>
+
+    <div class="conf">
+      <div class="conf__left">
+        <div class="conf__grid" role="radiogroup" aria-label="Size">
+          <button class="scard" data-size="single" role="radio" aria-checked="false">
+            <span class="scard__top"><b>Single</b><i class="num">€1,190</i></span>
+            <span class="scard__bot"><i class="num">90 × 200 cm</i><em>one adult</em></span>
+          </button>
+          <button class="scard" data-size="double" role="radio" aria-checked="false">
+            <span class="scard__top"><b>Double</b><i class="num">€1,490</i></span>
+            <span class="scard__bot"><i class="num">140 × 200 cm</i><em>two, snug</em></span>
+          </button>
+          <button class="scard is-on" data-size="queen" role="radio" aria-checked="true">
+            <span class="scard__top"><b>Queen</b><i class="num">€1,690</i></span>
+            <span class="scard__bot"><i class="num">160 × 200 cm</i><em>two, comfortable</em></span>
+          </button>
+          <button class="scard" data-size="king" role="radio" aria-checked="false">
+            <span class="scard__top"><b>King</b><i class="num">€1,890</i></span>
+            <span class="scard__bot"><i class="num">180 × 200 cm</i><em>two plus a child</em></span>
+          </button>
+        </div>
+
+        <div class="foot">
+          <div class="foot__head">
+            <span class="eyebrow">Footprint, to scale</span>
+            <span class="num" id="footDim">160 × 200 cm</span>
+          </div>
+          <svg viewBox="0 0 620 230" aria-label="Bed footprint to scale">
+            <rect x="4" y="4" width="612" height="222" rx="10" fill="none" stroke="rgba(232,227,217,.1)" stroke-dasharray="4 6"/>
+            <text class="foot__wall" x="14" y="220">200 cm room wall</text>
+            <rect id="footRect" y="30" height="168" rx="8" fill="var(--sand)" fill-opacity=".16" stroke="var(--sand)" stroke-opacity=".75" stroke-width="2"/>
+            <g id="footPillows" fill="var(--sand)" fill-opacity=".32"></g>
+            <text id="footName" class="foot__name" y="130" text-anchor="middle">Queen</text>
+          </svg>
+        </div>
+      </div>
+
+      <aside class="rail">
+        <p class="eyebrow">Your build</p>
+        <p class="rail__title">STRATA <span id="railSize">Queen</span></p>
+        <p class="rail__sub num" id="railSub">160 × 200 cm · medium · 260 mm high</p>
+        <dl class="rail__lines">
+          <div><dt>Mattress</dt><dd class="num" id="railPrice">€1,690</dd></div>
+          <div><dt>Delivery to your room</dt><dd class="ok">included</dd></div>
+          <div><dt>100-night trial</dt><dd class="ok">included</dd></div>
+          <div><dt>Collection if returned</dt><dd class="ok">included</dd></div>
+        </dl>
+        <div class="rail__total"><span>Total</span><b class="num" id="railTotal">€1,690</b></div>
+        <a href="#order" class="btn btn--solid btn--wide">Order this build</a>
+        <p class="rail__fine">Sleep on it for 100 nights. If it is wrong we collect it and refund in full — you pay nothing and keep nothing.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ══ TRUST ══ -->
+  <section class="sec">
+    <div class="trust">
+      <div class="reveal"><b class="num">100</b><span>nights to decide</span><p>Long enough to stop comparing it to your old one, which takes about three weeks.</p></div>
+      <div class="reveal"><b class="num">10</b><span>year warranty</span><p>Against sagging over 20 mm — the number that actually ends a mattress.</p></div>
+      <div class="reveal"><b class="num">0</b><span>cost to return</span><p>We collect from the room it is in. No boxing it up, no courier drop-off.</p></div>
+    </div>
+  </section>
+
+  <!-- ══ SPECS ══ -->
+  <section class="sec">
+    <p class="eyebrow reveal">Specification</p>
+    <h2 class="reveal">The whole sheet.</h2>
+    <table class="specsheet reveal">
+      <tbody>
+        <tr><th>Total height</th><td class="num">260 mm</td></tr>
+        <tr><th>Cover</th><td>Cotton-tencel, 300 g/m², zip-off, 40° machine wash</td></tr>
+        <tr><th>Comfort layer</th><td>Open-cell memory foam with cooling gel, 50 mm</td></tr>
+        <tr><th>Transition layer</th><td class="num">Natural latex, 65–85 kg/m³, 40 mm</td></tr>
+        <tr><th>Spring core</th><td class="num">Pocket springs ⌀26 mm, 1,040 per m², 7 zones</td></tr>
+        <tr><th>Base</th><td class="num">High-density foam, 30 mm</td></tr>
+        <tr><th>Edge</th><td>Reinforced perimeter frame, full sit-on support</td></tr>
+        <tr><th>Weight, Queen</th><td class="num">38 kg</td></tr>
+        <tr><th>Delivered</th><td>Flat, uncompressed, carried to the room</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ══ ORDER ══ -->
+  <section class="sec" id="order">
+    <p class="eyebrow reveal">Order</p>
+    <h2 class="reveal">Tell us the build.<br>We reply the same day.</h2>
+    <p class="lead reveal">Your choices above are already filled in. Add when you want it and the message writes itself.</p>
+
+    <div class="order reveal">
+      <div class="order__step">
+        <span class="order__label">When would you like it</span>
+        <div class="chips" data-group="when">
+          <button class="chip" data-value="as soon as possible">As soon as possible</button>
+          <button class="chip" data-value="within two weeks">Within two weeks</button>
+          <button class="chip" data-value="next month">Next month</button>
+          <button class="chip" data-value="not sure yet, happy to talk first">Not sure yet</button>
+        </div>
+      </div>
+      <div class="order__result">
+        <p class="order__preview" id="orderPreview">Choose when you would like it.</p>
+        <a class="btn btn--solid btn--wide is-off" id="orderSend" href="#" aria-disabled="true">Send on WhatsApp</a>
+        <p class="order__note">Opens a chat with the message ready. You send it.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot2">
+  <span>© 2026 STRATA</span>
+  <span class="foot2__note">Concept work. The brand is invented and the figures are typical premium-segment values, not a real supplier's spec.</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
