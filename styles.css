@@ -61,6 +61,11 @@ h1{font-size:clamp(40px,8vw,76px);font-weight:600;letter-spacing:-.04em;line-hei
 .work__vis--studio{background:linear-gradient(150deg,#141416,#0C0C0E)}
 .work__vis--zelen{background:linear-gradient(150deg,#F1F2EE,#E0E4DA)}
 .work__vis--strata{background:linear-gradient(150deg,#1B2740,#0E1420)}
+.work__vis--cargo{background:linear-gradient(150deg,#232730,#14161A)}
+.mini--steel{background:#1C1F26;border:1px solid rgba(233,231,226,.09);color:#E9E7E2}
+.mini__box{position:absolute;right:20px;bottom:16px;width:64px;height:40px;
+           background:repeating-linear-gradient(90deg,#C2542C 0 5px,#A8462350 5px 10px),#B84E28;
+           border-radius:2px;transform:skewY(-8deg)}
 .mini--night{background:#141C2B;border:1px solid rgba(232,227,217,.09);color:#E8E3D9}
 .mini__lay{height:9px;width:var(--w);margin-top:5px;background:currentColor;opacity:.9;border-radius:3px}
 

@@ -1,0 +1,288 @@
+/* ============================================================
+   МЕРИДИАН — карго из Китая
+   Пятая палитра портфолио: графит и сигнальный оранжевый.
+   Цифры моноширинным — язык логистики: трек-номера, вес, сроки.
+   ============================================================ */
+:root{
+  --bg:#14161A;
+  --surface:#1C1F26;
+  --raise:#232730;
+  --text:#E9E7E2;
+  --dim:#9AA0AA;
+  --mute:#6C737F;
+  --line:rgba(233,231,226,.10);
+  --acc:#E1683A;          /* ржавый оранжевый контейнера, не неон */
+  --acc-soft:rgba(225,104,58,.12);
+
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue","Segoe UI",system-ui,sans-serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --max:1180px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --soft:cubic-bezier(.16,.84,.28,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);
+     line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+
+/* ---------- ШАПКА ---------- */
+.nav{position:sticky;top:0;z-index:90;display:flex;align-items:center;gap:32px;
+     max-width:var(--max);margin:0 auto;padding:18px 28px;
+     background:rgba(20,22,26,.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.nav__logo{font-size:14px;font-weight:700;letter-spacing:.26em;color:var(--text);text-decoration:none}
+.nav__menu{display:flex;gap:22px}
+.nav__menu a{font-size:14px;color:var(--mute);text-decoration:none;transition:color .3s var(--ease)}
+.nav__menu a:hover{color:var(--text)}
+.nav__cta{margin-left:auto;font-size:14px;color:var(--text);text-decoration:none;
+          border:1px solid var(--line);border-radius:8px;padding:9px 18px;
+          transition:border-color .3s var(--ease),background .3s var(--ease)}
+.nav__cta:hover{border-color:var(--acc);background:var(--acc-soft)}
+
+/* ---------- ОБЩЕЕ ---------- */
+.eyebrow{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--acc);margin-bottom:18px}
+h1{font-size:clamp(40px,6.2vw,74px);font-weight:600;letter-spacing:-.04em;line-height:1.02;margin-bottom:24px}
+h2{font-size:clamp(28px,4.2vw,48px);font-weight:600;letter-spacing:-.032em;line-height:1.08;margin-bottom:30px}
+h3{font-size:18px;font-weight:600;letter-spacing:-.015em;margin-bottom:8px}
+.lead{font-size:16.5px;color:var(--dim);max-width:470px;margin-bottom:30px}
+.note{font-size:14px;color:var(--mute);margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+
+.btn{display:inline-block;padding:13px 26px;border-radius:8px;font-size:15px;font-weight:500;
+     text-decoration:none;color:var(--text);border:1px solid var(--line);
+     transition:border-color .3s var(--ease),background .3s var(--ease),transform .3s var(--ease)}
+.btn:hover{border-color:rgba(233,231,226,.28)}
+.btn--solid{background:var(--acc);color:#14161A;border-color:transparent;font-weight:600}
+.btn--solid:hover{background:#EE7A4D;transform:translateY(-2px)}
+.btn--wide{display:block;text-align:center}
+.btn.is-off{opacity:.32;pointer-events:none}
+
+.sec{max-width:var(--max);margin:0 auto;padding:100px 28px}
+.sec--split{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.sec__head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:42px}
+.sec__head h2{margin-bottom:0}
+.sec__note{font-size:14.5px;color:var(--mute);max-width:300px}
+
+/* ============================================================
+   ПЕРВЫЙ ЭКРАН · КОНТЕЙНЕР В НАСТОЯЩЕМ 3D
+
+   Шесть граней в общем 3D-пространстве. preserve-3d заставляет
+   браузер считать глубину по-настоящему, а не рисовать плоскую
+   картинку. Поворот по прокрутке — через --ry.
+   ============================================================ */
+.hero{position:relative;max-width:var(--max);margin:0 auto;padding:52px 28px 90px;
+      display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;overflow:clip}
+.hero__sub{font-size:17.5px;color:var(--dim);max-width:470px;margin-bottom:34px}
+.hero__cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+.facts{display:flex;gap:38px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:22px}
+.facts b{display:block;font-size:24px;font-weight:600}
+.facts span{font-size:12px;color:var(--mute)}
+
+.scene{position:relative;height:420px;display:flex;align-items:center;justify-content:center;
+       perspective:1400px;perspective-origin:50% 42%}
+.box{
+  position:relative;width:400px;height:190px;
+  transform-style:preserve-3d;                    /* без этого грани схлопнутся в плоскость */
+  transform:rotateX(-16deg) rotateY(var(--ry,-28deg));
+  --d:180px;                                       /* глубина контейнера */
+}
+.face{position:absolute;inset:0;border:1px solid rgba(0,0,0,.35)}
+/* Гофра — характерная примета контейнера, рисуется полосами */
+.face--front,.face--back{
+  background:
+    repeating-linear-gradient(90deg,#C2542C 0 14px,#A8462350 14px 28px),
+    #B84E28;
+  transform:translateZ(calc(var(--d)/2));
+}
+.face--back{transform:translateZ(calc(var(--d)/-2)) rotateY(180deg);filter:brightness(.62)}
+.face--left,.face--right{
+  width:var(--d);left:calc(50% - var(--d)/2);
+  background:repeating-linear-gradient(90deg,#A8462B 0 12px,#8E3A2350 12px 24px),#9C4126;
+}
+.face--left{transform:rotateY(-90deg) translateZ(200px);filter:brightness(.78)}
+.face--right{transform:rotateY(90deg) translateZ(200px);filter:brightness(.9)}
+.face--top,.face--bottom{
+  height:var(--d);top:calc(50% - var(--d)/2);
+  background:repeating-linear-gradient(0deg,#CB5C33 0 14px,#B04A2850 14px 28px),#C0552E;
+}
+.face--top{transform:rotateX(90deg) translateZ(95px)}
+.face--bottom{transform:rotateX(-90deg) translateZ(95px);filter:brightness(.5)}
+
+.face__mark{position:absolute;left:22px;top:26px;font-size:22px;font-weight:800;
+            letter-spacing:.16em;color:rgba(255,240,232,.9)}
+.face__code{position:absolute;left:22px;bottom:22px;font-size:12px;
+            letter-spacing:.2em;color:rgba(255,240,232,.72)}
+.scene__shadow{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+               width:420px;height:26px;border-radius:50%;
+               background:radial-gradient(closest-side,rgba(0,0,0,.6),transparent);filter:blur(6px)}
+
+.cue{grid-column:1/-1;display:flex;align-items:center;gap:12px;
+     font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.cue span{width:44px;height:1px;background:linear-gradient(90deg,var(--acc),transparent)}
+
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    /* Контейнер доворачивается, пока первый экран уходит вверх */
+    .box{animation:spin linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
+  }
+}
+@keyframes spin{
+  from{transform:rotateX(-16deg) rotateY(-34deg)}
+  to  {transform:rotateX(-10deg) rotateY(26deg)}
+}
+
+/* ---------- ТРИ СПОСОБА ---------- */
+.ways{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.way{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:14px;
+     padding:26px 26px 24px;transition:border-color .3s var(--ease),transform .3s var(--ease)}
+.way:hover{border-color:rgba(233,231,226,.22);transform:translateY(-3px)}
+.way--best{border-color:var(--acc);background:linear-gradient(180deg,var(--acc-soft),var(--surface) 42%)}
+.way__flag{position:absolute;top:-10px;left:26px;background:var(--acc);color:#14161A;
+           font-size:11px;font-weight:600;letter-spacing:.06em;border-radius:5px;padding:3px 9px}
+.way__top{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.way__ico{width:38px;height:38px;color:var(--acc);flex:none}
+.way__ico svg{width:100%;height:100%}
+.way__top h3{margin-bottom:0}
+.way__facts{border-top:1px solid var(--line);margin-bottom:16px}
+.way__facts>div{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid rgba(233,231,226,.06)}
+.way__facts dt{font-size:13.5px;color:var(--mute)}
+.way__facts dd{margin-left:auto;font-size:14px;font-weight:500}
+.way__for{font-size:14px;color:var(--dim)}
+
+/* ---------- МАРШРУТ ---------- */
+.route{list-style:none;counter-reset:none;position:relative}
+/* Вертикальная линия маршрута */
+.route::before{content:"";position:absolute;left:23px;top:14px;bottom:14px;width:2px;
+               background:linear-gradient(180deg,var(--acc),rgba(225,104,58,.15))}
+.step{position:relative;display:grid;grid-template-columns:70px 1fr 120px;gap:22px;
+      align-items:start;padding:22px 0}
+.step__n{position:relative;z-index:2;width:46px;height:46px;border-radius:50%;
+         display:flex;align-items:center;justify-content:center;font-size:13px;
+         background:var(--surface);border:1px solid var(--line);color:var(--mute);
+         transition:color .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease)}
+.step__body h3{margin-bottom:6px}
+.step__body p{font-size:14.5px;color:var(--dim)}
+.step__d{font-size:13px;color:var(--mute);text-align:right;padding-top:14px}
+
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .step{animation:stepIn linear both;animation-timeline:view();animation-range:entry 8% cover 30%}
+    .step__n{animation:stepOn linear both;animation-timeline:view();animation-range:entry 14% cover 34%}
+  }
+}
+@keyframes stepIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes stepOn{to{color:#14161A;background:var(--acc);border-color:var(--acc)}}
+
+/* ---------- СТРОКИ ---------- */
+.rows{border-top:1px solid var(--line)}
+.rows>div{display:flex;gap:18px;padding:15px 0;border-bottom:1px solid rgba(233,231,226,.06)}
+.rows dt{font-family:var(--mono);font-size:12px;color:var(--acc);min-width:24px}
+.rows dd b{display:block;font-size:15px;font-weight:500}
+.rows dd span{font-size:14px;color:var(--mute)}
+
+/* ---------- УПАКОВКА ---------- */
+.pack svg{width:100%;height:auto}
+.pk__t{fill:rgba(233,231,226,.5);font-size:13px;text-anchor:middle;letter-spacing:.14em}
+.pk__l{fill:var(--mute);font-size:12px}
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    /* Слои упаковки надеваются один за другим */
+    .pk{animation:pkOn linear both;animation-timeline:view();
+        animation-range:entry calc(10% + var(--p)*11%) entry calc(38% + var(--p)*11%)}
+  }
+}
+@keyframes pkOn{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:none}}
+
+/* ---------- КАЛЬКУЛЯТОР ---------- */
+.calc{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:start}
+.calc__form{display:flex;flex-direction:column;gap:30px}
+.field label,.field__label{display:block;font-size:14px;font-weight:500;margin-bottom:14px}
+.field__row{display:flex;align-items:center;gap:20px}
+.field__hint{font-size:12.5px;color:var(--mute);margin-top:10px}
+input[type=range]{flex:1;-webkit-appearance:none;appearance:none;height:4px;border-radius:2px;
+  background:linear-gradient(90deg,var(--acc) var(--fill,5%),rgba(233,231,226,.14) var(--fill,5%));outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;
+  background:var(--text);cursor:pointer;border:4px solid var(--acc)}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--text);
+  cursor:pointer;border:4px solid var(--acc)}
+output{font-size:19px;font-weight:600;min-width:96px;text-align:right}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:inherit;font-size:14px;background:transparent;color:var(--text);cursor:pointer;
+      border:1px solid var(--line);border-radius:8px;padding:9px 16px;
+      transition:border-color .25s var(--ease),background .25s var(--ease),color .25s var(--ease)}
+.chip:hover{border-color:rgba(233,231,226,.26)}
+.chip.is-on{background:var(--acc);border-color:var(--acc);color:#14161A;font-weight:500}
+
+.quote{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;position:sticky;top:86px}
+.quote__big{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
+.quote__big b{font-size:42px;font-weight:600;letter-spacing:-.03em}
+.quote__big span{font-size:14px;color:var(--mute);margin-left:auto}
+.quote__lines{border-top:1px solid var(--line)}
+.quote__lines>div{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid rgba(233,231,226,.06)}
+.quote__lines dt{font-size:14px;color:var(--dim)}
+.quote__lines dd{margin-left:auto;font-size:14px}
+.quote__lines .ok{color:var(--acc)}
+.quote__note{font-size:13px;color:var(--mute);margin:16px 0 20px;min-height:36px}
+
+/* ---------- ДОВЕРИЕ ---------- */
+.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px}
+.trust b{display:block;font-size:50px;font-weight:600;letter-spacing:-.04em;line-height:1}
+.trust span{display:block;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);margin:8px 0 12px}
+.trust p{font-size:14.5px;color:var(--dim)}
+
+/* ---------- ЗАКАЗ ---------- */
+.order{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;max-width:720px}
+.order__step{margin-bottom:24px}
+.order__result{border-top:1px solid var(--line);padding-top:22px}
+.order__preview{font-size:15px;color:var(--mute);margin-bottom:16px;min-height:44px}
+.order__preview.is-ready{color:var(--text)}
+.order__note{font-size:12.5px;color:var(--mute);text-align:center;margin-top:12px}
+
+.foot{max-width:var(--max);margin:50px auto 0;padding:28px 28px 56px;border-top:1px solid var(--line);
+      display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--mute)}
+
+/* ---------- ТЕКСТОВЫЕ АНИМАЦИИ ---------- */
+.w{display:inline-block}
+.settle .w{animation:settle 1s var(--soft) both;animation-delay:calc(var(--i)*80ms)}
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .settle-s .w{animation:settle linear both;animation-timeline:view();
+                 animation-range:entry calc(10% + var(--i)*3.5%) entry calc(46% + var(--i)*3.5%)}
+  }
+}
+@keyframes settle{
+  from{opacity:0;transform:translateY(18px);filter:blur(7px)}
+  to  {opacity:1;transform:none;filter:blur(0)}
+}
+
+/* ---------- ТЕЛЕФОН ---------- */
+@media (max-width:1000px){
+  .calc{grid-template-columns:1fr;gap:28px}
+  .quote{position:static}
+}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:26px;padding-top:30px}
+  .scene{order:-1;height:300px}
+  .box{width:280px;height:135px;--d:126px}
+  .face--left,.face--right{left:calc(50% - var(--d)/2)}
+  .face--left{transform:rotateY(-90deg) translateZ(140px)}
+  .face--right{transform:rotateY(90deg) translateZ(140px)}
+  .face--top{transform:rotateX(90deg) translateZ(67px)}
+  .face--bottom{transform:rotateX(-90deg) translateZ(67px)}
+  .face__mark{font-size:16px;left:14px;top:16px}
+  .face__code{font-size:10px;left:14px;bottom:14px}
+  .scene__shadow{width:290px}
+  .sec--split{grid-template-columns:1fr;gap:28px}
+  .sec{padding:70px 20px}
+  .nav{gap:14px;padding:14px 20px}
+  .nav__menu{display:none}
+  .step{grid-template-columns:56px 1fr;gap:16px}
+  .step__d{grid-column:2;text-align:left;padding-top:6px}
+  .route::before{left:19px}
+  .facts{gap:24px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  .box{transform:rotateX(-14deg) rotateY(-24deg)}
+  .step__n{background:var(--acc);color:#14161A;border-color:var(--acc)}
+}

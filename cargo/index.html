@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>МЕРИДИАН — карго из Китая в Европу и Украину</title>
+<meta name="description" content="Забираем товар у поставщика в Гуанчжоу, консолидируем на складе, довозим до двери. Авиа 7–10 дней, ЖД 18–25. Фото груза перед отправкой, страховка включена.">
+<meta name="theme-color" content="#14161A">
+<meta property="og:title" content="МЕРИДИАН — карго из Китая">
+<meta property="og:description" content="От поставщика до двери. Авиа 7–10 дней, ЖД 18–25.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2314161A'/><g stroke='%23E1683A' stroke-width='2.4' fill='none'><path d='M7 12h18M7 16h18M7 20h18'/></g></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <a href="#top" class="nav__logo">МЕРИДИАН</a>
+  <nav class="nav__menu">
+    <a href="#ways">Способы</a>
+    <a href="#route">Маршрут</a>
+    <a href="#care">Упаковка</a>
+    <a href="#calc">Расчёт</a>
+  </nav>
+  <a href="#order" class="nav__cta">Рассчитать</a>
+</header>
+
+<main id="top">
+
+  <!-- ══ ПЕРВЫЙ ЭКРАН · настоящий CSS-3D контейнер ══ -->
+  <section class="hero">
+    <div class="hero__col">
+      <p class="eyebrow settle" data-words>Гуанчжоу → Европа и Украина</p>
+      <h1 class="settle" data-words>Ваш груз<br>под присмотром<br>всю дорогу.</h1>
+      <p class="hero__sub">Забираем у поставщика, проверяем, фотографируем, консолидируем на складе в Гуанчжоу и везём до двери. Вы видите каждый шаг, а не гадаете, где посылка.</p>
+      <div class="hero__cta">
+        <a href="#calc" class="btn btn--solid">Рассчитать доставку</a>
+        <a href="#route" class="btn">Как идёт груз</a>
+      </div>
+      <div class="facts">
+        <div><b class="mono">7–10</b><span>дней авиа, до двери</span></div>
+        <div><b class="mono">от 1 кг</b><span>минимальная отправка</span></div>
+        <div><b class="mono">100%</b><span>груз застрахован</span></div>
+      </div>
+    </div>
+
+    <!-- Шесть настоящих граней в 3D-пространстве, а не рисунок -->
+    <div class="scene" id="scene" aria-hidden="true">
+      <div class="box" id="box">
+        <div class="face face--front">
+          <span class="face__mark">MRDN</span>
+          <span class="face__code mono">4 5 8 2 1 7</span>
+        </div>
+        <div class="face face--back"></div>
+        <div class="face face--left"></div>
+        <div class="face face--right"><span class="face__mark">MRDN</span></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="scene__shadow"></div>
+    </div>
+
+    <p class="cue"><span></span>Прокрутите — контейнер повернётся</p>
+  </section>
+
+  <!-- ══ ТРИ СПОСОБА ══ -->
+  <section class="sec" id="ways">
+    <div class="sec__head">
+      <div>
+        <p class="eyebrow">Способы</p>
+        <h2 class="settle-s" data-words>Быстро, дёшево<br>или посередине.</h2>
+      </div>
+      <p class="sec__note">Цена за килограмм падает с объёмом. От тонны — минус 10–20% к тарифу.</p>
+    </div>
+
+    <div class="ways">
+      <article class="way">
+        <div class="way__top">
+          <span class="way__ico" aria-hidden="true">
+            <svg viewBox="0 0 40 40"><path d="M4 24 L36 14 M4 24 L14 26 L20 20 M36 14 L30 30 L24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Авиа</h3>
+        </div>
+        <dl class="way__facts">
+          <div><dt>Срок до двери</dt><dd class="mono">7–10 дней</dd></div>
+          <div><dt>Тариф</dt><dd class="mono">от 6,50 €/кг</dd></div>
+          <div><dt>Минимум</dt><dd class="mono">1 кг</dd></div>
+        </dl>
+        <p class="way__for">Образцы, электроника, всё срочное и лёгкое. Когда сорванный срок дороже тарифа.</p>
+      </article>
+
+      <article class="way way--best">
+        <span class="way__flag">чаще всего берут</span>
+        <div class="way__top">
+          <span class="way__ico" aria-hidden="true">
+            <svg viewBox="0 0 40 40"><rect x="6" y="12" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M26 17 h6 l4 5 v4 h-10z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><circle cx="13" cy="29" r="3" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="30" cy="29" r="3" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+          </span>
+          <h3>Железная дорога</h3>
+        </div>
+        <dl class="way__facts">
+          <div><dt>Срок до двери</dt><dd class="mono">18–25 дней</dd></div>
+          <div><dt>Тариф</dt><dd class="mono">от 2,80 €/кг</dd></div>
+          <div><dt>Минимум</dt><dd class="mono">20 кг</dd></div>
+        </dl>
+        <p class="way__for">Одежда, товары для магазина, регулярные закупки. Вдвое быстрее моря и вдвое дешевле неба.</p>
+      </article>
+
+      <article class="way">
+        <div class="way__top">
+          <span class="way__ico" aria-hidden="true">
+            <svg viewBox="0 0 40 40"><path d="M5 27 h30 l-3 6 H8z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M10 27 V17 h18 v10" stroke="currentColor" stroke-width="2" fill="none"/><path d="M19 17 V9 h8" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+          </span>
+          <h3>Море</h3>
+        </div>
+        <dl class="way__facts">
+          <div><dt>Срок до двери</dt><dd class="mono">35–45 дней</dd></div>
+          <div><dt>Тариф</dt><dd class="mono">от 1,20 €/кг</dd></div>
+          <div><dt>Минимум</dt><dd class="mono">100 кг</dd></div>
+        </dl>
+        <p class="way__for">Мебель, объём, всё тяжёлое и несрочное. Считайте на полтора месяца вперёд.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══ МАРШРУТ · шаги подсвечиваются по прокрутке ══ -->
+  <section class="sec" id="route">
+    <p class="eyebrow">Маршрут</p>
+    <h2 class="settle-s" data-words>Шесть шагов.<br>Все видны вам.</h2>
+
+    <ol class="route">
+      <li class="step" style="--s:0">
+        <span class="step__n mono">01</span>
+        <div class="step__body">
+          <h3>Забираем у поставщика</h3>
+          <p>Вы даёте адрес и номер заказа. Курьер забирает коробку с фабрики или рынка в тот же день.</p>
+        </div>
+        <span class="step__d mono">день 1</span>
+      </li>
+      <li class="step" style="--s:1">
+        <span class="step__n mono">02</span>
+        <div class="step__body">
+          <h3>Проверяем и фотографируем</h3>
+          <p>Вскрываем, сверяем количество, снимаем каждую позицию. Фото уходят вам до того, как груз поедет.</p>
+        </div>
+        <span class="step__d mono">день 1–2</span>
+      </li>
+      <li class="step" style="--s:2">
+        <span class="step__n mono">03</span>
+        <div class="step__body">
+          <h3>Складываем на складе</h3>
+          <p>Ждём остальные ваши заказы до 14 дней бесплатно. Несколько поставщиков уезжают одной отправкой — так дешевле.</p>
+        </div>
+        <span class="step__d mono">до 14 дней</span>
+      </li>
+      <li class="step" style="--s:3">
+        <span class="step__n mono">04</span>
+        <div class="step__body">
+          <h3>Пакуем под дорогу</h3>
+          <p>Обрешётка, стрейч, углы. Хрупкое — в жёсткий короб. Как именно — ниже.</p>
+        </div>
+        <span class="step__d mono">1 день</span>
+      </li>
+      <li class="step" style="--s:4">
+        <span class="step__n mono">05</span>
+        <div class="step__body">
+          <h3>Везём и растаможиваем</h3>
+          <p>Документы оформляем сами. Трек-номер работает всю дорогу, а не «появится позже».</p>
+        </div>
+        <span class="step__d mono">7–45 дней</span>
+      </li>
+      <li class="step" style="--s:5">
+        <span class="step__n mono">06</span>
+        <div class="step__body">
+          <h3>Отдаём в руки</h3>
+          <p>До двери или до пункта выдачи — как удобнее. Вскрываете при курьере.</p>
+        </div>
+        <span class="step__d mono">финиш</span>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ══ ЦЕЛОСТНОСТЬ ГРУЗА ══ -->
+  <section class="sec sec--split" id="care">
+    <div>
+      <p class="eyebrow">Целостность</p>
+      <h2 class="settle-s" data-words>Доезжает то,<br>что уезжало.</h2>
+      <p class="lead">Груз бьётся не в пути, а на перегрузках. Их между Гуанчжоу и вашей дверью пять. Поэтому пакуем под перегрузки, а не под красивую фотографию.</p>
+      <dl class="rows">
+        <div><dt>01</dt><dd><b>Обрешётка на тяжёлое</b><span>Деревянный каркас, груз не давит на соседей снизу</span></dd></div>
+        <div><dt>02</dt><dd><b>Двойной короб на хрупкое</b><span>Между стенками — вспененный полиэтилен</span></dd></div>
+        <div><dt>03</dt><dd><b>Углы и стрейч на всё</b><span>Паллета не расползается при наклоне</span></dd></div>
+        <div><dt>04</dt><dd><b>Фото до и после</b><span>Видно, в каком виде приняли и в каком отдали</span></dd></div>
+      </dl>
+      <p class="note">Если что-то всё же побилось — страховка покрывает стоимость товара. Не «рассмотрим обращение», а покрывает.</p>
+    </div>
+
+    <!-- Упаковка собирается слой за слоем по прокрутке -->
+    <div class="pack">
+      <svg viewBox="0 0 460 400" aria-label="Как собирается упаковка">
+        <ellipse cx="230" cy="356" rx="150" ry="12" fill="#000" opacity=".45"/>
+        <g class="pk" style="--p:0">
+          <rect x="150" y="228" width="160" height="112" rx="3" fill="#3A4048"/>
+          <path d="M150 228 L230 196 L310 228" fill="#464D57"/>
+          <text class="pk__t mono" x="230" y="292">ТОВАР</text>
+        </g>
+        <g class="pk" style="--p:1">
+          <rect x="136" y="216" width="188" height="128" rx="4" fill="none" stroke="#6B7280" stroke-width="10"/>
+          <text class="pk__l mono" x="352" y="234">вспененный слой</text>
+          <path d="M330 228 H346" stroke="var(--acc)" stroke-width="1.4"/>
+        </g>
+        <g class="pk" style="--p:2">
+          <rect x="122" y="204" width="216" height="152" rx="4" fill="none" stroke="#8B939E" stroke-width="6"/>
+          <text class="pk__l mono" x="352" y="272">короб</text>
+          <path d="M344 266 H346" stroke="var(--acc)" stroke-width="1.4"/>
+        </g>
+        <g class="pk" style="--p:3">
+          <g stroke="var(--acc)" stroke-width="5" fill="none" stroke-linecap="round">
+            <path d="M122 240 H338"/><path d="M122 320 H338"/>
+            <path d="M164 204 V356"/><path d="M296 204 V356"/>
+          </g>
+          <text class="pk__l mono" x="352" y="326">стрейч и углы</text>
+          <path d="M340 320 H346" stroke="var(--acc)" stroke-width="1.4"/>
+        </g>
+        <g class="pk" style="--p:4">
+          <rect x="108" y="356" width="244" height="16" rx="2" fill="#5A6270"/>
+          <rect x="124" y="372" width="18" height="14" fill="#4A505C"/>
+          <rect x="318" y="372" width="18" height="14" fill="#4A505C"/>
+          <text class="pk__l mono" x="352" y="382">паллета</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══ КАЛЬКУЛЯТОР ══ -->
+  <section class="sec" id="calc">
+    <div class="sec__head">
+      <div>
+        <p class="eyebrow">Расчёт</p>
+        <h2 class="settle-s" data-words>Считает при вас.<br>Без «уточним позже».</h2>
+      </div>
+      <p class="sec__note">Итог — ориентир по тарифу. Точную сумму подтверждаем после взвешивания на складе.</p>
+    </div>
+
+    <div class="calc">
+      <div class="calc__form">
+        <div class="field">
+          <label for="w">Вес груза</label>
+          <div class="field__row">
+            <input id="w" type="range" min="1" max="1200" step="1" value="60">
+            <output class="mono" id="wOut">60 кг</output>
+          </div>
+          <p class="field__hint">Ползунок от 1 кг до 1,2 тонны</p>
+        </div>
+
+        <div class="field">
+          <span class="field__label">Способ</span>
+          <div class="chips" data-group="way">
+            <button class="chip" data-way="air">Авиа</button>
+            <button class="chip is-on" data-way="rail">ЖД</button>
+            <button class="chip" data-way="sea">Море</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field__label">Куда</span>
+          <div class="chips" data-group="dest">
+            <button class="chip is-on" data-dest="Германию">Германия</button>
+            <button class="chip" data-dest="Польшу">Польша</button>
+            <button class="chip" data-dest="Украину">Украина</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="quote">
+        <p class="eyebrow">Ориентир</p>
+        <div class="quote__big">
+          <b class="mono" id="qPrice">168 €</b>
+          <span class="mono" id="qRate">2,80 €/кг</span>
+        </div>
+        <dl class="quote__lines">
+          <div><dt>Способ</dt><dd id="qWay">Железная дорога</dd></div>
+          <div><dt>Срок до двери</dt><dd class="mono" id="qDays">18–25 дней</dd></div>
+          <div><dt>Скидка за объём</dt><dd class="mono" id="qDisc">—</dd></div>
+          <div><dt>Страховка</dt><dd class="ok">включена</dd></div>
+          <div><dt>Хранение до 14 дней</dt><dd class="ok">включено</dd></div>
+        </dl>
+        <p class="quote__note" id="qNote"></p>
+        <a href="#order" class="btn btn--solid btn--wide">Отправить на расчёт</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ══ ДОВЕРИЕ ══ -->
+  <section class="sec">
+    <div class="trust">
+      <div><b class="mono">5</b><span>перегрузок в пути</span><p>Столько раз груз меняет руки. Мы пакуем под это число, а не под витринное фото.</p></div>
+      <div><b class="mono">14</b><span>дней хранения бесплатно</span><p>Успеваете собрать заказы у разных поставщиков и отправить их одной посылкой.</p></div>
+      <div><b class="mono">0 €</b><span>за фото и проверку</span><p>Вскрываем и снимаем всё до отправки. Это входит в тариф, а не продаётся отдельно.</p></div>
+    </div>
+  </section>
+
+  <!-- ══ ЗАКАЗ ══ -->
+  <section class="sec" id="order">
+    <p class="eyebrow">Заявка</p>
+    <h2 class="settle-s" data-words>Напишите — ответим<br>в тот же день.</h2>
+    <p class="lead">Расчёт выше уже подставлен. Добавьте, что везёте, и сообщение соберётся само.</p>
+
+    <div class="order">
+      <div class="order__step">
+        <span class="field__label">Что за груз</span>
+        <div class="chips" data-group="cargo">
+          <button class="chip" data-cargo="одежду">Одежда</button>
+          <button class="chip" data-cargo="электронику">Электроника</button>
+          <button class="chip" data-cargo="товары для дома">Товары для дома</button>
+          <button class="chip" data-cargo="образцы">Образцы</button>
+          <button class="chip" data-cargo="другое">Другое</button>
+        </div>
+      </div>
+      <div class="order__result">
+        <p class="order__preview" id="orderPreview">Выберите, что за груз.</p>
+        <a class="btn btn--solid btn--wide is-off" id="orderSend" href="#" aria-disabled="true">Отправить в WhatsApp</a>
+        <p class="order__note">Откроется чат с готовым текстом. Отправляете вы.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <span>© 2026 МЕРИДИАН</span>
+  <span class="foot__note">Концептная работа. Компания вымышленная, тарифы и сроки — рыночные диапазоны 2026 года.</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
