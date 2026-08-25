@@ -1,0 +1,111 @@
+/* ============================================================
+   КОНТУР — концепт студии стрижки
+   Тёмная тема. Тёплый уход в бежевый, чтобы не спорить с кофейней
+   и показать, что тёмное бывает разным.
+   ============================================================ */
+:root{
+  --bg:#0C0C0E;
+  --surface:#141416;
+  --ink:#E9E4DC;      /* тёплый белый, не ледяной */
+  --dim:#8E8880;
+  --accent:#C9A227;   /* латунь: парикмахерская, а не финтех */
+  --line:rgba(233,228,220,.12);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue","Segoe UI",system-ui,sans-serif;
+  --max:960px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* Плёночное зерно поверх всего. Убирает «цифровую стерильность» */
+.grain{
+  position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.30;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;max-width:var(--max);margin:0 auto;padding:20px 24px;
+     background:rgba(12,12,14,.75);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.nav__logo{font-size:15px;font-weight:700;letter-spacing:.22em;color:var(--ink);text-decoration:none}
+.nav__cta{margin-left:auto;font-size:14px;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:100px;padding:8px 18px;transition:border-color .3s var(--ease)}
+.nav__cta:hover{border-color:var(--accent)}
+
+.hero{max-width:var(--max);margin:0 auto;padding:90px 24px 100px;position:relative;z-index:2}
+.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+h1{font-size:clamp(40px,8vw,80px);font-weight:700;letter-spacing:-.035em;line-height:1.02;margin-bottom:24px}
+.hero__sub{font-size:clamp(16px,2.2vw,19px);color:var(--dim);max-width:480px;margin-bottom:36px}
+.lead{color:var(--dim);max-width:520px;margin:-24px 0 36px}
+
+.btn{display:inline-block;padding:14px 30px;border-radius:100px;font-size:15px;font-weight:500;text-decoration:none;transition:all .3s var(--ease);border:1px solid transparent}
+.btn--solid{background:var(--ink);color:var(--bg)}
+.btn--solid:hover{background:var(--accent);transform:translateY(-2px)}
+.btn--wide{display:block;text-align:center}
+.btn.is-disabled{opacity:.35;pointer-events:none}
+
+.section{max-width:var(--max);margin:0 auto;padding:80px 24px;position:relative;z-index:2}
+h2{font-size:clamp(26px,4.4vw,38px);font-weight:700;letter-spacing:-.03em;line-height:1.14;margin-bottom:40px}
+
+/* ---------- ПРАЙС ---------- */
+.price{list-style:none}
+.price li{display:flex;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);font-size:16px;transition:color .25s var(--ease)}
+.price li:hover{color:var(--accent)}
+.price i{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px)}
+.price b{font-weight:600;font-variant-numeric:tabular-nums}
+.price em{font-style:normal;font-size:13px;color:var(--dim);min-width:52px;text-align:right}
+
+/* ---------- ЗАПИСЬ ---------- */
+.booking{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:34px 30px}
+.booking__step{margin-bottom:28px}
+.booking__num{font-size:11px;letter-spacing:.16em;color:var(--dim);margin-right:10px}
+.booking__label{font-size:14px;font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+.chips--time{margin-top:9px}
+
+.chip{
+  font-family:inherit;font-size:14px;
+  background:transparent;color:var(--ink);
+  border:1px solid var(--line);border-radius:100px;
+  padding:9px 17px;cursor:pointer;
+  transition:border-color .25s var(--ease),background .25s var(--ease),color .25s var(--ease);
+}
+.chip:hover{border-color:var(--dim)}
+/* Выбранный вариант: класс ставит JS */
+.chip.is-active{background:var(--accent);border-color:var(--accent);color:#14140F;font-weight:500}
+
+.booking__result{border-top:1px solid var(--line);padding-top:26px;margin-top:6px}
+.booking__preview{font-size:15px;color:var(--dim);margin-bottom:18px;min-height:44px}
+.booking__preview.is-ready{color:var(--ink)}
+.booking__note{font-size:13px;color:var(--dim);text-align:center;margin-top:12px}
+
+/* ---------- КАРТОЧКИ ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px 22px;transition:transform .35s var(--ease),border-color .35s var(--ease)}
+.card:hover{transform:translateY(-3px);border-color:rgba(201,162,39,.35)}
+.card h3{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);font-weight:500;margin-bottom:12px}
+.card p{font-size:15px;margin-bottom:10px}
+.card p:last-child{margin-bottom:0}
+.card a{color:var(--accent);text-decoration:none}
+.card a:hover{text-decoration:underline}
+
+.footer{max-width:var(--max);margin:40px auto 0;padding:34px 24px 56px;border-top:1px solid var(--line);
+        display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--dim);position:relative;z-index:2}
+
+/* ---------- ПОЯВЛЕНИЕ ПРИ ПРОКРУТКЕ ----------
+   Тот же приём, что в кофейне: чистый CSS, ноль JS.
+   @supports — где не поддерживается, всё просто видно. */
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{animation:появление linear both;animation-timeline:view();animation-range:entry 8% cover 32%}
+    .price li{animation-range:entry 0% cover 24%}
+  }
+}
+@keyframes появление{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+@media (max-width:700px){
+  .section,.hero{padding-left:20px;padding-right:20px}
+  .booking{padding:26px 20px}
+  .price li{flex-wrap:wrap;gap:6px}
+  .price i{display:none}
+  .price em{margin-left:auto}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}}

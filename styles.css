@@ -1,0 +1,123 @@
+/* ============================================================
+   ПОРТФОЛИО — главная
+   Тёмная, в основной палитре. Работы внутри — разные по настроению,
+   а витрина одна и держит их вместе.
+   ============================================================ */
+:root{
+  --bg:#0A0A0B; --fg:#E8E8ED; --dim:#A1A1A8; --gray:#6E6E76;
+  --line:rgba(255,255,255,.09);
+  --glass:rgba(255,255,255,.035);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue","Segoe UI",system-ui,sans-serif;
+  --max:1060px; --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--fg);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* Хромовый блик на фоне — та же подпись, что на витрине */
+.ambient{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.sheen{
+  position:absolute;top:-25%;left:-15%;width:130%;height:150%;
+  background:linear-gradient(104deg,transparent 24%,rgba(255,255,255,.05) 34%,rgba(255,255,255,.26) 40%,
+             rgba(150,155,175,.08) 45%,transparent 52%,transparent 64%,rgba(255,255,255,.13) 70%,transparent 78%);
+  filter:blur(70px);opacity:.8;
+  animation:sway 30s var(--ease) infinite alternate;
+}
+@keyframes sway{from{transform:translateX(-4%) rotate(-1.5deg)}to{transform:translateX(4%) rotate(1.5deg)}}
+
+.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;max-width:var(--max);margin:0 auto;
+     padding:20px 24px;background:rgba(10,10,11,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.nav__logo{font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.nav__cta{margin-left:auto;font-size:14px;color:var(--fg);text-decoration:none;border:1px solid var(--line);
+          border-radius:100px;padding:8px 18px;transition:border-color .3s var(--ease)}
+.nav__cta:hover{border-color:rgba(255,255,255,.28)}
+
+/* ---------- ВВОДНАЯ ---------- */
+.intro{max-width:var(--max);margin:0 auto;padding:80px 24px 60px}
+h1{font-size:clamp(40px,8vw,76px);font-weight:600;letter-spacing:-.04em;line-height:1;margin-bottom:20px;
+   background:linear-gradient(170deg,#FFF 15%,var(--fg) 45%,var(--gray) 100%);
+   -webkit-background-clip:text;background-clip:text;color:transparent}
+.intro__sub{font-size:clamp(16px,2.2vw,19px);color:var(--dim);max-width:520px;margin-bottom:44px}
+
+/* Три цифры вместо абзаца хвастовства */
+.facts{display:flex;gap:44px;flex-wrap:wrap}
+.facts b{display:block;font-size:26px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.facts span{font-size:13px;color:var(--gray)}
+
+/* ---------- РАБОТЫ ---------- */
+.works{max-width:var(--max);margin:0 auto;padding:20px 24px 40px;display:grid;gap:22px}
+.work__link{
+  display:grid;grid-template-columns:400px 1fr;gap:0;
+  text-decoration:none;color:inherit;
+  background:var(--glass);border:1px solid var(--line);border-radius:22px;overflow:hidden;
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  transition:transform .4s var(--ease),border-color .4s var(--ease);
+}
+.work__link:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.2)}
+
+/* Мини-превью: макет страницы, нарисованный CSS. Ни одной картинки */
+.work__vis{display:flex;align-items:center;justify-content:center;padding:36px;min-height:250px}
+.work__vis--kofe{background:linear-gradient(150deg,#FAF8F5,#EFE9E1)}
+.work__vis--studio{background:linear-gradient(150deg,#141416,#0C0C0E)}
+
+.mini{position:relative;display:block;width:100%;max-width:250px;aspect-ratio:4/3;border-radius:10px;padding:14px;
+      box-shadow:0 18px 40px rgba(0,0,0,.20)}
+.mini--light{background:#FFF}
+.mini--dark{background:#1B1B1E;border:1px solid rgba(255,255,255,.07)}
+.mini i{display:block;border-radius:3px}
+.mini__bar{height:5px;width:38%;margin-bottom:14px;background:currentColor;opacity:.3}
+.mini__h{height:14px;width:72%;margin-bottom:9px;background:currentColor;opacity:.85}
+.mini__t{height:5px;width:88%;margin-bottom:6px;background:currentColor;opacity:.28}
+.mini__t--s{width:60%}
+.mini--light{color:#1C1917}
+.mini--dark{color:#E9E4DC}
+.mini__cup{position:absolute;right:20px;bottom:18px;width:44px;height:34px;border:2px solid #8B5E34;
+           border-radius:4px 4px 20px 20px;opacity:.85}
+/* Чипы записи в тёмном превью */
+.mini__chip{display:inline-block !important;height:13px;width:38px;margin:4px 4px 0 0;background:currentColor;opacity:.16;border-radius:100px}
+.mini__chip--on{background:#C9A227;opacity:1}
+.mini__btn{height:16px;width:100%;margin-top:12px;background:currentColor;opacity:.9;border-radius:100px}
+
+.work__body{padding:32px 32px 28px}
+.work__head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.work__body h2{font-size:24px;font-weight:600;letter-spacing:-.02em}
+.tag{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);
+     border:1px solid var(--line);border-radius:100px;padding:3px 9px}
+.work__kind{font-size:13px;color:var(--gray);margin-bottom:20px}
+
+/* Задача и решение — то, что отличает ремесленника от исполнителя */
+.work__meta{margin-bottom:20px}
+.work__meta dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:5px}
+.work__meta dd{font-size:15px;color:var(--dim);margin-bottom:16px}
+.work__meta dd:last-child{margin-bottom:0}
+.work__go{font-size:14px;color:var(--fg);transition:transform .3s var(--ease);display:inline-block}
+.work__link:hover .work__go{transform:translateX(4px)}
+
+/* ---------- КАК СДЕЛАНО ---------- */
+.how{max-width:var(--max);margin:0 auto;padding:60px 24px 40px}
+.how h2{font-size:clamp(24px,4vw,32px);font-weight:600;letter-spacing:-.025em;margin-bottom:28px}
+.how__list{list-style:none;display:grid;gap:14px;max-width:660px}
+.how__list li{font-size:15px;color:var(--dim);padding-left:18px;position:relative}
+.how__list li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:1px;background:var(--gray)}
+.how__list b{color:var(--fg);font-weight:500}
+
+.footer{max-width:var(--max);margin:40px auto 0;padding:34px 24px 60px;border-top:1px solid var(--line);
+        display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--gray)}
+
+/* ---------- ПОЯВЛЕНИЕ ПРИ ПРОКРУТКЕ, чистый CSS ---------- */
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{animation:появление linear both;animation-timeline:view();animation-range:entry 6% cover 30%}
+  }
+}
+@keyframes появление{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+@media (max-width:800px){
+  .work__link{grid-template-columns:1fr}
+  .work__vis{min-height:200px;padding:28px}
+  .work__body{padding:26px 22px 24px}
+  .facts{gap:28px}
+  .intro{padding:50px 20px 40px}
+  .works,.how{padding-left:20px;padding-right:20px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}}

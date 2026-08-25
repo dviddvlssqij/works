@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Зерно — кофейня на Остерштрассе</title>
+<meta name="description" content="Небольшая кофейня: обжарка каждую неделю, выпечка с утра. Остерштрассе 14, Бремен. Открыто с 7:30.">
+<meta name="theme-color" content="#FAF8F5">
+<meta property="og:title" content="Зерно — кофейня">
+<meta property="og:description" content="Обжарка каждую неделю. Выпечка с утра.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23FAF8F5'/><text x='16' y='23' font-size='18' font-family='system-ui' font-weight='600' fill='%23503A28' text-anchor='middle'>З</text></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <a href="#" class="nav__logo">Зерно</a>
+  <!-- Статус подставляет JS: считает по текущему времени -->
+  <span class="status" id="status" aria-live="polite">
+    <span class="status__dot"></span><span id="statusText">—</span>
+  </span>
+  <a href="tel:+4942100000000" class="nav__call">Позвонить</a>
+</header>
+
+<main>
+
+  <!-- ЭКРАН 1 — сразу отвечает на три вопроса: что, где, когда -->
+  <section class="hero">
+    <div class="hero__text reveal">
+      <p class="eyebrow">Кофейня · Бремен</p>
+      <h1>Зерно</h1>
+      <p class="hero__sub">
+        Обжариваем каждую неделю. Печём с утра.<br>
+        Больше ничего не обещаем.
+      </p>
+      <div class="hero__meta">
+        <div><span class="k">Где</span> Остерштрассе 14</div>
+        <div><span class="k">Когда</span> Пн–Пт 7:30–19:00 · Сб–Вс 9:00–18:00</div>
+      </div>
+      <a href="#menu" class="btn">Смотреть меню</a>
+    </div>
+    <!-- Чашка, нарисованная CSS. Без фото — страница работает и без них -->
+    <div class="cup" aria-hidden="true">
+      <span class="cup__steam s1"></span>
+      <span class="cup__steam s2"></span>
+      <span class="cup__steam s3"></span>
+      <span class="cup__body"></span>
+      <span class="cup__handle"></span>
+      <span class="cup__saucer"></span>
+    </div>
+  </section>
+
+  <!-- ЭКРАН 2 — меню. Главное, зачем заходят на сайт кафе -->
+  <section class="section" id="menu">
+    <p class="eyebrow reveal">Меню</p>
+    <h2 class="reveal">Что наливаем</h2>
+
+    <div class="menu">
+      <div class="menu__col reveal">
+        <h3 class="menu__title">Кофе</h3>
+        <ul class="price">
+          <li><span>Эспрессо</span><i></i><b>2,20</b></li>
+          <li><span>Американо</span><i></i><b>2,60</b></li>
+          <li><span>Капучино</span><i></i><b>3,40</b></li>
+          <li><span>Флэт уайт</span><i></i><b>3,60</b></li>
+          <li><span>Латте</span><i></i><b>3,60</b></li>
+          <li><span>Раф</span><i></i><b>4,10</b></li>
+          <li><span>Фильтр дня</span><i></i><b>3,00</b></li>
+        </ul>
+      </div>
+
+      <div class="menu__col reveal">
+        <h3 class="menu__title">С собой из печи</h3>
+        <ul class="price">
+          <li><span>Круассан</span><i></i><b>2,80</b></li>
+          <li><span>Круассан с миндалём</span><i></i><b>3,40</b></li>
+          <li><span>Синнабон</span><i></i><b>3,60</b></li>
+          <li><span>Банановый хлеб</span><i></i><b>3,20</b></li>
+          <li><span>Киш дня</span><i></i><b>4,50</b></li>
+        </ul>
+
+        <h3 class="menu__title menu__title--gap">Зерно домой</h3>
+        <ul class="price">
+          <li><span>250 г, обжарка недели</span><i></i><b>9,00</b></li>
+          <li><span>1 кг</span><i></i><b>32,00</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="note reveal">Цены в евро. Молоко на замену — без доплаты.</p>
+  </section>
+
+  <!-- ЭКРАН 3 — коротко о месте -->
+  <section class="section section--split">
+    <div>
+      <p class="eyebrow reveal">Про нас</p>
+      <h2 class="reveal">Двенадцать мест<br>и одна кофемашина</h2>
+    </div>
+    <div class="about reveal">
+      <p>Мы маленькие. Очередь бывает, столик не всегда свободен — зато обжарка своя и всегда свежая.</p>
+      <p>Зерно берём у двух ферм и меняем раз в сезон. Что стоит на помоле сегодня — написано мелом у кассы.</p>
+      <p>Работаем на вынос и на месте. Со своей чашкой — минус 30 центов.</p>
+    </div>
+  </section>
+
+  <!-- ЭКРАН 4 — как дойти. Второе по важности после меню -->
+  <section class="section" id="where">
+    <p class="eyebrow reveal">Как дойти</p>
+    <h2 class="reveal">Остерштрассе 14</h2>
+
+    <div class="cards">
+      <div class="card reveal">
+        <h3>Часы</h3>
+        <p>Понедельник–пятница<br><b>7:30 — 19:00</b></p>
+        <p>Суббота–воскресенье<br><b>9:00 — 18:00</b></p>
+      </div>
+      <div class="card reveal">
+        <h3>Как найти</h3>
+        <p>Пять минут от остановки <b>Домсхайде</b>.<br>Вход со двора, зелёная дверь.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Связаться</h3>
+        <p><a href="tel:+4942100000000">+49 421 000 000</a></p>
+        <p><a href="mailto:hallo@zerno.example">hallo@zerno.example</a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>© 2026 Зерно</span>
+  <span class="footer__note">Концептная работа. Заведение вымышленное.</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+/* ============================================================
+   ЗЕРНО — концепт кофейни
+   Светлая тёплая тема. Та же школа, что и в тёмных работах:
+   системные шрифты, воздух, ноль зависимостей.
+   ============================================================ */
+:root {
+  --bg:      #FAF8F5;   /* тёплый почти-белый, не стерильный */
+  --surface: #FFFFFF;
+  --ink:     #1C1917;   /* почти чёрный с тёплым уходом */
+  --dim:     #78716C;
+  --accent:  #8B5E34;   /* кофейный, единственный цветной акцент */
+  --line:    rgba(28,25,23,.10);
+
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+          "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --max: 1000px;
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ============================================================
+   ШАПКА
+   ============================================================ */
+.nav{
+  position:sticky; top:0; z-index:50;      /* липнет к верху при прокрутке */
+  display:flex; align-items:center; gap:16px;
+  max-width:var(--max); margin:0 auto;
+  padding:18px 24px;
+  background:rgba(250,248,245,.82);
+  backdrop-filter:blur(12px);              /* фон под шапкой размывается */
+  -webkit-backdrop-filter:blur(12px);
+}
+.nav__logo{font-size:19px;font-weight:600;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.nav__call{
+  margin-left:auto;font-size:14px;font-weight:500;
+  color:var(--ink);text-decoration:none;
+  border:1px solid var(--line);border-radius:100px;padding:8px 18px;
+  transition:border-color .3s var(--ease),background .3s var(--ease);
+}
+.nav__call:hover{border-color:var(--accent);background:var(--surface)}
+
+/* Индикатор «открыто / закрыто». Цвет ставит JS через класс */
+.status{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--dim)}
+.status__dot{width:7px;height:7px;border-radius:50%;background:var(--dim);flex:none}
+.status.is-open  .status__dot{background:#3F8F4E; box-shadow:0 0 0 3px rgba(63,143,78,.16)}
+.status.is-closed .status__dot{background:#B4534A; box-shadow:0 0 0 3px rgba(180,83,74,.14)}
+
+/* ============================================================
+   ПЕРВЫЙ ЭКРАН
+   ============================================================ */
+.hero{
+  max-width:var(--max);margin:0 auto;
+  padding:70px 24px 90px;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;
+}
+.eyebrow{
+  font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:18px;
+}
+h1{
+  font-size:clamp(48px,9vw,88px);font-weight:600;
+  letter-spacing:-.04em;line-height:1;margin-bottom:22px;
+}
+.hero__sub{font-size:clamp(16px,2.2vw,19px);color:var(--dim);margin-bottom:34px}
+
+/* Ключевая информация сразу на первом экране: где и когда */
+.hero__meta{display:grid;gap:10px;margin-bottom:34px;font-size:15px}
+.hero__meta .k{
+  display:inline-block;min-width:62px;
+  color:var(--dim);font-size:13px;
+}
+
+.btn{
+  display:inline-block;background:var(--ink);color:var(--bg);
+  padding:13px 28px;border-radius:100px;
+  font-size:15px;font-weight:500;text-decoration:none;
+  transition:transform .3s var(--ease),background .3s var(--ease);
+}
+.btn:hover{background:var(--accent);transform:translateY(-2px)}
+
+/* ============================================================
+   ЧАШКА — нарисована CSS, без единой картинки
+   ============================================================ */
+.cup{position:relative;height:260px}
+.cup__body{
+  position:absolute;left:50%;bottom:38px;transform:translateX(-50%);
+  width:130px;height:104px;
+  background:var(--surface);
+  border:1.5px solid var(--line);
+  border-radius:10px 10px 54px 54px;   /* сверху угловатая, снизу круглая */
+}
+/* Кофе внутри */
+.cup__body::after{
+  content:"";position:absolute;left:9px;right:9px;top:9px;height:16px;
+  background:var(--accent);opacity:.85;border-radius:6px;
+}
+.cup__handle{
+  position:absolute;left:calc(50% + 62px);bottom:74px;
+  width:38px;height:40px;
+  border:1.5px solid var(--line);border-left:none;
+  border-radius:0 40px 40px 0;
+}
+.cup__saucer{
+  position:absolute;left:50%;bottom:22px;transform:translateX(-50%);
+  width:186px;height:12px;
+  background:var(--surface);border:1.5px solid var(--line);border-radius:50%;
+}
+/* Пар: три полоски, поднимаются и тают вразнобой */
+.cup__steam{
+  position:absolute;bottom:146px;width:3px;height:42px;
+  background:linear-gradient(180deg,transparent,var(--dim));
+  border-radius:3px;opacity:0;
+}
+.s1{left:calc(50% - 26px);animation:steam 3.6s ease-in-out infinite}
+.s2{left:50%;               animation:steam 3.6s ease-in-out .7s infinite}
+.s3{left:calc(50% + 26px);  animation:steam 3.6s ease-in-out 1.4s infinite}
+@keyframes steam{
+  0%  {opacity:0;transform:translateY(10px) scaleY(.6)}
+  35% {opacity:.5}
+  100%{opacity:0;transform:translateY(-26px) scaleY(1.15)}
+}
+
+/* ============================================================
+   СЕКЦИИ
+   ============================================================ */
+.section{max-width:var(--max);margin:0 auto;padding:80px 24px}
+h2{font-size:clamp(28px,4.6vw,40px);font-weight:600;letter-spacing:-.03em;line-height:1.12;margin-bottom:42px}
+
+/* ============================================================
+   МЕНЮ С ЦЕНАМИ
+   ============================================================ */
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.menu__title{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:16px}
+.menu__title--gap{margin-top:38px}
+.price{list-style:none}
+.price li{display:flex;align-items:baseline;gap:10px;padding:9px 0;font-size:16px}
+/* Точечный поводок между названием и ценой — как в бумажном меню */
+.price i{
+  flex:1;border-bottom:1px dotted var(--line);
+  transform:translateY(-4px);
+}
+.price b{font-weight:500;font-variant-numeric:tabular-nums} /* цифры одной ширины — цены в столбик */
+.note{margin-top:32px;font-size:14px;color:var(--dim)}
+
+/* ============================================================
+   ПРО НАС
+   ============================================================ */
+.section--split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.section--split h2{margin-bottom:0}
+.about p{color:var(--dim);margin-bottom:16px}
+.about p:last-child{margin-bottom:0}
+
+/* ============================================================
+   КАРТОЧКИ «КАК ДОЙТИ»
+   ============================================================ */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px 24px}
+.card h3{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);font-weight:500;margin-bottom:14px}
+.card p{font-size:15px;margin-bottom:12px}
+.card p:last-child{margin-bottom:0}
+.card a{color:var(--accent);text-decoration:none}
+.card a:hover{text-decoration:underline}
+
+/* ============================================================
+   ПОДВАЛ
+   ============================================================ */
+.footer{
+  max-width:var(--max);margin:0 auto;
+  padding:36px 24px 56px;margin-top:40px;
+  border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  font-size:13px;color:var(--dim);
+}
+
+/* ============================================================
+   ТЕЛЕФОНЫ
+   ============================================================ */
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;gap:24px;padding-top:40px}
+  .cup{order:-1;height:200px}          /* чашку наверх, к ней взгляд идёт первым */
+  .menu{grid-template-columns:1fr;gap:34px}
+  .section--split{grid-template-columns:1fr;gap:24px}
+  .section{padding:60px 20px}
+  .nav{gap:10px;padding:14px 20px}
+  .nav__call{padding:7px 14px;font-size:13px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+
+/* ============================================================
+   ПОЯВЛЕНИЕ ПРИ ПРОКРУТКЕ — на чистом CSS
+
+   animation-timeline: view() привязывает анимацию не ко времени,
+   а к положению элемента в окне. Ноль JavaScript, ноль библиотек.
+
+   @supports — страховка: где браузер этого не умеет, блок из правила
+   не применяется вовсе, и содержимое просто видно. Ничего не ломается.
+   ============================================================ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+
+    .reveal {
+      animation: появление linear both;
+      animation-timeline: view();
+      /* от «вошёл в экран на 8%» до «прошёл 34% пути» */
+      animation-range: entry 8% cover 34%;
+    }
+
+    /* Карточки идут каскадом: у каждой следующей диапазон чуть позже */
+    .cards .card:nth-child(2) { animation-range: entry 8% cover 40%; }
+    .cards .card:nth-child(3) { animation-range: entry 8% cover 46%; }
+
+    /* Строки меню проявляются одна за другой */
+    .price li {
+      animation: строка linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 26%;
+    }
+
+    /* Чашка слегка отъезжает при прокрутке — глубина без параллакс-библиотек */
+    .cup {
+      animation: отъезд linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+  }
+}
+
+@keyframes появление {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes строка {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes отъезд {
+  from { transform: translateY(26px) scale(.97); }
+  to   { transform: translateY(-26px) scale(1.02); }
+}
+
+/* Мягкая реакция карточек на курсор */
+.card { transition: transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease); }
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(139,94,52,.30);
+  box-shadow: 0 14px 34px rgba(28,25,23,.07);
+}
+
+/* Цена подсвечивается при наведении на строку — мелочь, но страница отвечает */
+.price li { transition: color .25s var(--ease); }
+.price li:hover { color: var(--accent); }
+.price li:hover i { border-bottom-color: rgba(139,94,52,.35); }

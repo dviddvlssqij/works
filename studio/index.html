@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>КОНТУР — студия стрижки</title>
+<meta name="description" content="Студия стрижки: четыре кресла, запись за минуту. Выберите мастера и время — сообщение соберётся само.">
+<meta name="theme-color" content="#0C0C0E">
+<meta property="og:title" content="КОНТУР — студия стрижки">
+<meta property="og:description" content="Запись за минуту. Без звонков.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230C0C0E'/><text x='16' y='23' font-size='17' font-family='system-ui' font-weight='700' fill='%23E9E4DC' text-anchor='middle'>К</text></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav">
+  <a href="#" class="nav__logo">КОНТУР</a>
+  <a href="#zapis" class="nav__cta">Записаться</a>
+</header>
+
+<main>
+
+  <section class="hero">
+    <p class="eyebrow reveal">Студия стрижки · Бремен</p>
+    <h1 class="reveal">Четыре кресла.<br>Без очереди.</h1>
+    <p class="hero__sub reveal">
+      Записываетесь за минуту, приходите ко времени.
+      Ни звонков, ни ожидания в кресле у входа.
+    </p>
+    <a href="#zapis" class="btn btn--solid reveal">Выбрать время</a>
+  </section>
+
+  <!-- ПРАЙС -->
+  <section class="section" id="price">
+    <p class="eyebrow reveal">Прайс</p>
+    <h2 class="reveal">Всё, что делаем</h2>
+    <ul class="price">
+      <li class="reveal"><span>Мужская стрижка</span><i></i><b>28 €</b><em>45 мин</em></li>
+      <li class="reveal"><span>Стрижка машинкой</span><i></i><b>18 €</b><em>25 мин</em></li>
+      <li class="reveal"><span>Борода</span><i></i><b>16 €</b><em>30 мин</em></li>
+      <li class="reveal"><span>Стрижка + борода</span><i></i><b>38 €</b><em>70 мин</em></li>
+      <li class="reveal"><span>Детская, до 12 лет</span><i></i><b>20 €</b><em>30 мин</em></li>
+      <li class="reveal"><span>Камуфляж седины</span><i></i><b>22 €</b><em>40 мин</em></li>
+    </ul>
+  </section>
+
+  <!-- ЗАПИСЬ — главный приём страницы -->
+  <section class="section" id="zapis">
+    <p class="eyebrow reveal">Запись</p>
+    <h2 class="reveal">Три касания —<br>и вы записаны</h2>
+    <p class="lead reveal">
+      Выберите услугу, мастера и время. Сообщение соберётся само —
+      останется отправить.
+    </p>
+
+    <div class="booking reveal">
+      <div class="booking__step">
+        <span class="booking__num">01</span>
+        <span class="booking__label">Услуга</span>
+        <div class="chips" data-group="service">
+          <button class="chip" data-value="Мужская стрижка">Стрижка</button>
+          <button class="chip" data-value="Борода">Борода</button>
+          <button class="chip" data-value="Стрижка + борода">Стрижка + борода</button>
+          <button class="chip" data-value="Детская стрижка">Детская</button>
+        </div>
+      </div>
+
+      <div class="booking__step">
+        <span class="booking__num">02</span>
+        <span class="booking__label">Мастер</span>
+        <div class="chips" data-group="master">
+          <button class="chip" data-value="любому свободному">Любой свободный</button>
+          <button class="chip" data-value="к Артёму">Артём</button>
+          <button class="chip" data-value="к Насте">Настя</button>
+          <button class="chip" data-value="к Дэну">Дэн</button>
+        </div>
+      </div>
+
+      <div class="booking__step">
+        <span class="booking__num">03</span>
+        <span class="booking__label">Когда</span>
+        <div class="chips" data-group="day"></div>
+        <div class="chips chips--time" data-group="time"></div>
+      </div>
+
+      <!-- Собранное сообщение показывается до отправки: никаких сюрпризов -->
+      <div class="booking__result">
+        <p class="booking__preview" id="preview">Выберите услугу, мастера и время.</p>
+        <a class="btn btn--solid btn--wide is-disabled" id="send" href="#" aria-disabled="true">Отправить в WhatsApp</a>
+        <p class="booking__note">Откроется чат с готовым текстом. Отправляете вы.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАК ДОЙТИ -->
+  <section class="section" id="where">
+    <p class="eyebrow reveal">Где</p>
+    <h2 class="reveal">Фиртельштрассе 3</h2>
+    <div class="cards">
+      <div class="card reveal"><h3>Часы</h3><p>Вторник–суббота<br><b>10:00 — 20:00</b></p><p>Воскресенье, понедельник<br>выходной</p></div>
+      <div class="card reveal"><h3>Как найти</h3><p>Две минуты от <b>Остерторштайнвег</b>.<br>Вывеска чёрная, вход с улицы.</p></div>
+      <div class="card reveal"><h3>Связаться</h3><p><a href="tel:+4942100000000">+49 421 000 000</a></p><p><a href="#zapis">Записаться онлайн</a></p></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>© 2026 КОНТУР</span>
+  <span class="footer__note">Концептная работа. Студия вымышленная.</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
