@@ -4,12 +4,13 @@
    системные шрифты, воздух, ноль зависимостей.
    ============================================================ */
 :root {
-  --bg:      #FAF8F5;   /* тёплый почти-белый, не стерильный */
-  --surface: #FFFFFF;
-  --ink:     #1C1917;   /* почти чёрный с тёплым уходом */
-  --dim:     #78716C;
-  --accent:  #8B5E34;   /* кофейный, единственный цветной акцент */
-  --line:    rgba(28,25,23,.10);
+  --bg:      #EFE6D9;   /* тёплый песочный: фон не белый, как в референсе */
+  --bg-deep: #E2D3BE;   /* нижняя половина градиента */
+  --surface: #FBF7F1;   /* карточки — светлее фона, но не белые */
+  --ink:     #2A201A;   /* тёплый тёмно-коричневый вместо чёрного */
+  --dim:     #7B6A5C;
+  --accent:  #8B5E34;
+  --line:    rgba(42,32,26,.12);
 
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
           "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
@@ -21,10 +22,17 @@
 html{scroll-behavior:smooth}
 body{
   font-family:var(--font);
-  background:var(--bg);
   color:var(--ink);
   line-height:1.65;
   -webkit-font-smoothing:antialiased;
+  /* Три слоя: диагональная полоса света, мягкое пятно сверху, базовый градиент.
+     Это заменяет фотографию стены — ноль килобайт и не мылится на любом экране. */
+  background:
+    linear-gradient(107deg, transparent 30%, rgba(255,252,246,.55) 42%,
+                    rgba(255,252,246,.18) 50%, transparent 60%),
+    radial-gradient(120% 80% at 22% -10%, rgba(255,251,244,.85), transparent 62%),
+    linear-gradient(168deg, var(--bg) 0%, var(--bg-deep) 100%);
+  background-attachment: fixed;   /* фон стоит, содержимое едет — даёт глубину */
 }
 
 /* ============================================================
@@ -88,45 +96,29 @@ h1{
 .btn:hover{background:var(--accent);transform:translateY(-2px)}
 
 /* ============================================================
-   ЧАШКА — нарисована CSS, без единой картинки
+   ГЛАВНЫЙ СНИМОК
    ============================================================ */
-.cup{position:relative;height:260px}
-.cup__body{
-  position:absolute;left:50%;bottom:38px;transform:translateX(-50%);
-  width:130px;height:104px;
-  background:var(--surface);
-  border:1.5px solid var(--line);
-  border-radius:10px 10px 54px 54px;   /* сверху угловатая, снизу круглая */
+.shot{position:relative;margin:0}
+.shot{isolation:isolate}
+/* Тёплая плёнка поверх снимка — досаживает его в фон страницы */
+.shot::after{
+  content:"";position:absolute;inset:0;border-radius:20px;
+  background:linear-gradient(150deg, rgba(214,180,140,.26), rgba(139,94,52,.14));
+  mix-blend-mode:multiply;pointer-events:none;
 }
-/* Кофе внутри */
-.cup__body::after{
-  content:"";position:absolute;left:9px;right:9px;top:9px;height:16px;
-  background:var(--accent);opacity:.85;border-radius:6px;
+.shot img{
+  width:100%;height:auto;display:block;
+  border-radius:20px;
+  /* Приводим холодный снимок к тёплой палитре: гасим синеву, добавляем сепию */
+  filter:saturate(.42) sepia(.42) contrast(1.06) brightness(1.03);
+  box-shadow:0 30px 60px rgba(42,32,26,.18);
 }
-.cup__handle{
-  position:absolute;left:calc(50% + 62px);bottom:74px;
-  width:38px;height:40px;
-  border:1.5px solid var(--line);border-left:none;
-  border-radius:0 40px 40px 0;
-}
-.cup__saucer{
-  position:absolute;left:50%;bottom:22px;transform:translateX(-50%);
-  width:186px;height:12px;
-  background:var(--surface);border:1.5px solid var(--line);border-radius:50%;
-}
-/* Пар: три полоски, поднимаются и тают вразнобой */
-.cup__steam{
-  position:absolute;bottom:146px;width:3px;height:42px;
-  background:linear-gradient(180deg,transparent,var(--dim));
-  border-radius:3px;opacity:0;
-}
-.s1{left:calc(50% - 26px);animation:steam 3.6s ease-in-out infinite}
-.s2{left:50%;               animation:steam 3.6s ease-in-out .7s infinite}
-.s3{left:calc(50% + 26px);  animation:steam 3.6s ease-in-out 1.4s infinite}
-@keyframes steam{
-  0%  {opacity:0;transform:translateY(10px) scaleY(.6)}
-  35% {opacity:.5}
-  100%{opacity:0;transform:translateY(-26px) scaleY(1.15)}
+.shot__tag{
+  position:absolute;left:16px;bottom:16px;
+  background:rgba(251,247,241,.86);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-radius:100px;padding:8px 16px;
+  font-size:13px;letter-spacing:.01em;
 }
 
 /* ============================================================
@@ -262,3 +254,42 @@ h2{font-size:clamp(28px,4.6vw,40px);font-weight:600;letter-spacing:-.03em;line-h
 .price li { transition: color .25s var(--ease); }
 .price li:hover { color: var(--accent); }
 .price li:hover i { border-bottom-color: rgba(139,94,52,.35); }
+
+
+/* ============================================================
+   КАРТОЧКИ ТОВАРА С ФОТО
+   ============================================================ */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:18px;margin-bottom:54px;
+}
+.item{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:14px 14px 18px;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+}
+.item:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(42,32,26,.12)}
+
+/* Рамка фиксированной пропорции: снимки разной высоты не ломают сетку */
+.item__pic{
+  aspect-ratio:1/1;overflow:hidden;border-radius:12px;margin-bottom:14px;
+  background:var(--bg-deep);
+}
+.item__pic img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:saturate(.5) sepia(.34) contrast(1.04);
+  transition:transform .6s var(--ease);
+}
+.item:hover .item__pic img{transform:scale(1.06)}
+
+.item h3{font-size:16px;font-weight:600;margin-bottom:3px}
+.item p{font-size:13px;color:var(--dim);margin-bottom:10px}
+.item__price{font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+
+@media (max-width:760px){
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .item{padding:10px 10px 14px}
+}

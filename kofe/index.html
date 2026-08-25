@@ -40,15 +40,11 @@
       </div>
       <a href="#menu" class="btn">Смотреть меню</a>
     </div>
-    <!-- Чашка, нарисованная CSS. Без фото — страница работает и без них -->
-    <div class="cup" aria-hidden="true">
-      <span class="cup__steam s1"></span>
-      <span class="cup__steam s2"></span>
-      <span class="cup__steam s3"></span>
-      <span class="cup__body"></span>
-      <span class="cup__handle"></span>
-      <span class="cup__saucer"></span>
-    </div>
+    <!-- Настоящий снимок вместо рисунка. Тёплый фильтр приводит его к палитре страницы -->
+    <figure class="shot">
+      <img src="media/hero.jpg" alt="Айс-латте в стакане" width="1100" height="1650" fetchpriority="high">
+      <figcaption class="shot__tag">Айс-латте · 3,60</figcaption>
+    </figure>
   </section>
 
   <!-- ЭКРАН 2 — меню. Главное, зачем заходят на сайт кафе -->
@@ -56,30 +52,52 @@
     <p class="eyebrow reveal">Меню</p>
     <h2 class="reveal">Что наливаем</h2>
 
+    <div class="grid">
+      <article class="item reveal">
+        <div class="item__pic"><img src="media/p1.jpg" alt="Эспрессо" loading="lazy" width="560" height="840"></div>
+        <h3>Эспрессо</h3>
+        <p>Двойной, тёмная обжарка</p>
+        <span class="item__price">2,20 €</span>
+      </article>
+      <article class="item reveal">
+        <div class="item__pic"><img src="media/p2.jpg" alt="Капучино" loading="lazy" width="560" height="374"></div>
+        <h3>Капучино</h3>
+        <p>Эспрессо и плотная пена</p>
+        <span class="item__price">3,40 €</span>
+      </article>
+      <article class="item reveal">
+        <div class="item__pic"><img src="media/p3.jpg" alt="Колд брю" loading="lazy" width="560" height="840"></div>
+        <h3>Колд брю</h3>
+        <p>Настаивается 16 часов</p>
+        <span class="item__price">3,80 €</span>
+      </article>
+      <article class="item reveal">
+        <div class="item__pic"><img src="media/p4.jpg" alt="Флэт уайт" loading="lazy" width="560" height="746"></div>
+        <h3>Флэт уайт</h3>
+        <p>Меньше молока, больше кофе</p>
+        <span class="item__price">3,60 €</span>
+      </article>
+    </div>
+
+    <!-- Остальное — обычным списком: не всё нужно показывать фотографией -->
     <div class="menu">
       <div class="menu__col reveal">
-        <h3 class="menu__title">Кофе</h3>
+        <h3 class="menu__title">Ещё из кофе</h3>
         <ul class="price">
-          <li><span>Эспрессо</span><i></i><b>2,20</b></li>
           <li><span>Американо</span><i></i><b>2,60</b></li>
-          <li><span>Капучино</span><i></i><b>3,40</b></li>
-          <li><span>Флэт уайт</span><i></i><b>3,60</b></li>
           <li><span>Латте</span><i></i><b>3,60</b></li>
           <li><span>Раф</span><i></i><b>4,10</b></li>
           <li><span>Фильтр дня</span><i></i><b>3,00</b></li>
         </ul>
       </div>
-
       <div class="menu__col reveal">
         <h3 class="menu__title">С собой из печи</h3>
         <ul class="price">
           <li><span>Круассан</span><i></i><b>2,80</b></li>
           <li><span>Круассан с миндалём</span><i></i><b>3,40</b></li>
           <li><span>Синнабон</span><i></i><b>3,60</b></li>
-          <li><span>Банановый хлеб</span><i></i><b>3,20</b></li>
           <li><span>Киш дня</span><i></i><b>4,50</b></li>
         </ul>
-
         <h3 class="menu__title menu__title--gap">Зерно домой</h3>
         <ul class="price">
           <li><span>250 г, обжарка недели</span><i></i><b>9,00</b></li>
