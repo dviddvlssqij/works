@@ -59,6 +59,7 @@ h1{font-size:clamp(40px,8vw,76px);font-weight:600;letter-spacing:-.04em;line-hei
 .work__vis{display:flex;align-items:center;justify-content:center;padding:36px;min-height:250px}
 .work__vis--kofe{background:linear-gradient(150deg,#FAF8F5,#EFE9E1)}
 .work__vis--studio{background:linear-gradient(150deg,#141416,#0C0C0E)}
+.work__vis--zelen{background:linear-gradient(150deg,#F1F2EE,#E0E4DA)}
 
 .mini{position:relative;display:block;width:100%;max-width:250px;aspect-ratio:4/3;border-radius:10px;padding:14px;
       box-shadow:0 18px 40px rgba(0,0,0,.20)}
@@ -76,6 +77,9 @@ h1{font-size:clamp(40px,8vw,76px);font-weight:600;letter-spacing:-.04em;line-hei
 /* Чипы записи в тёмном превью */
 .mini__chip{display:inline-block !important;height:13px;width:38px;margin:4px 4px 0 0;background:currentColor;opacity:.16;border-radius:100px}
 .mini__chip--on{background:#C9A227;opacity:1}
+/* Лист в превью работы «Лист» */
+.mini__leaf{position:absolute;right:22px;bottom:18px;width:34px;height:44px;
+            background:#3E5138;opacity:.8;border-radius:50% 4% 50% 4%;transform:rotate(-18deg)}
 .mini__btn{height:16px;width:100%;margin-top:12px;background:currentColor;opacity:.9;border-radius:100px}
 
 .work__body{padding:32px 32px 28px}

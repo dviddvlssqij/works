@@ -1,0 +1,133 @@
+/* ============================================================
+   ЛИСТ — концепт магазина растений
+   Третья палитра в портфолио: холодный светлый камень.
+   Кофейня — тёплый песок, студия — тёмное с латунью, здесь — прохладный зелёный.
+   ============================================================ */
+:root{
+  --bg:#F1F2EE;
+  --surface:#FFFFFF;
+  --ink:#22271F;        /* глубокий зелёно-чёрный, не чистый чёрный */
+  --dim:#6B7266;
+  --accent:#3E5138;     /* приглушённый лесной */
+  --line:rgba(34,39,31,.12);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue","Segoe UI",system-ui,sans-serif;
+  --max:1080px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(110% 70% at 78% -8%, rgba(255,255,255,.9), transparent 60%),
+    linear-gradient(170deg,var(--bg) 0%, #E6E9E1 100%);
+  background-attachment:fixed;
+}
+
+/* ---------- ШАПКА ---------- */
+.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:28px;
+     max-width:var(--max);margin:0 auto;padding:20px 24px;
+     background:rgba(241,242,238,.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.nav__logo{font-size:15px;font-weight:700;letter-spacing:.24em;color:var(--ink);text-decoration:none}
+.nav__menu{display:flex;gap:22px}
+.nav__menu a{font-size:14px;color:var(--dim);text-decoration:none;transition:color .3s var(--ease)}
+.nav__menu a:hover{color:var(--ink)}
+.nav__cta{margin-left:auto;font-size:14px;color:var(--ink);text-decoration:none;
+          border:1px solid var(--line);border-radius:100px;padding:8px 18px;
+          transition:border-color .3s var(--ease),background .3s var(--ease)}
+.nav__cta:hover{border-color:var(--accent);background:var(--surface)}
+
+/* ---------- ЭКРАН 1 ----------
+   Сетка в три полосы: типографика слева, снимок справа, подпись внизу.
+   Заголовок намеренно наезжает на фото — приём из референсов. */
+.hero{max-width:var(--max);margin:0 auto;padding:56px 24px 90px;
+      display:grid;grid-template-columns:1.05fr .95fr;gap:0 32px;align-items:center}
+.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+h1{font-size:clamp(44px,7.6vw,86px);font-weight:600;letter-spacing:-.045em;line-height:.98}
+h1 span{display:block}
+h1 span:nth-child(2){padding-left:.5em;color:var(--dim)}
+.hero__type{position:relative;z-index:2}
+.hero__shot{margin:0;position:relative}
+.hero__shot img{width:100%;height:auto;display:block;border-radius:18px;
+                box-shadow:0 34px 70px rgba(34,39,31,.16)}
+.hero__foot{grid-column:1/-1;display:flex;align-items:center;gap:36px;flex-wrap:wrap;
+            margin-top:44px;padding-top:28px;border-top:1px solid var(--line)}
+.hero__foot p{font-size:16px;color:var(--dim);max-width:440px;flex:1}
+
+.btn{display:inline-block;padding:13px 28px;border-radius:100px;font-size:15px;font-weight:500;
+     text-decoration:none;border:1px solid var(--line);color:var(--ink);
+     transition:all .3s var(--ease)}
+.btn:hover{border-color:var(--accent)}
+.btn--solid{background:var(--ink);color:var(--bg);border-color:transparent}
+.btn--solid:hover{background:var(--accent);transform:translateY(-2px)}
+.btn--wide{display:block;text-align:center}
+.btn.is-disabled{opacity:.3;pointer-events:none}
+
+/* ---------- СЕКЦИИ ---------- */
+.section{max-width:var(--max);margin:0 auto;padding:76px 24px}
+h2{font-size:clamp(28px,4.6vw,42px);font-weight:600;letter-spacing:-.03em;line-height:1.1}
+.section__head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;
+               flex-wrap:wrap;margin-bottom:40px}
+.section__note{font-size:14px;color:var(--dim);max-width:260px}
+.lead{color:var(--dim);max-width:480px;margin:14px 0 34px}
+
+/* ---------- ТРИ ПРИЧИНЫ ---------- */
+.reasons__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px}
+.reason__n{display:block;font-size:12px;letter-spacing:.16em;color:var(--accent);margin-bottom:16px}
+.reason h3{font-size:19px;font-weight:600;margin-bottom:10px;letter-spacing:-.015em}
+.reason p{font-size:15px;color:var(--dim)}
+
+/* ---------- КАТАЛОГ ---------- */
+.cat{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.prod__pic{aspect-ratio:4/5;overflow:hidden;border-radius:16px;background:var(--surface);margin-bottom:16px}
+.prod__pic img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s var(--ease)}
+.prod:hover .prod__pic img{transform:scale(1.05)}
+.prod__row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:4px}
+.prod__row h3{font-size:17px;font-weight:600;letter-spacing:-.015em}
+.prod__row b{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.prod p{font-size:14px;color:var(--dim)}
+
+/* ---------- БЛОК С ФОТО ---------- */
+.split{max-width:var(--max);margin:0 auto;padding:60px 24px;
+       display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.split__pic{margin:0}
+.split__pic img{width:100%;height:auto;display:block;border-radius:18px}
+.split__text h2{margin-bottom:18px}
+.split__text p{color:var(--dim);margin-bottom:14px}
+
+/* ---------- ЗАКАЗ ---------- */
+.order{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:32px 28px}
+.order__step{margin-bottom:26px}
+.order__label{font-size:13px;font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:13px}
+.chip{font-family:inherit;font-size:14px;background:transparent;color:var(--ink);
+      border:1px solid var(--line);border-radius:100px;padding:9px 17px;cursor:pointer;
+      transition:all .25s var(--ease)}
+.chip:hover{border-color:var(--dim)}
+.chip.is-active{background:var(--accent);border-color:var(--accent);color:#F1F2EE;font-weight:500}
+.order__result{border-top:1px solid var(--line);padding-top:24px}
+.order__preview{font-size:15px;color:var(--dim);margin-bottom:18px;min-height:24px}
+.order__preview.is-ready{color:var(--ink)}
+.order__note{font-size:13px;color:var(--dim);text-align:center;margin-top:12px}
+
+.footer{max-width:var(--max);margin:30px auto 0;padding:32px 24px 56px;border-top:1px solid var(--line);
+        display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--dim)}
+
+/* ---------- ПОЯВЛЕНИЕ ПРИ ПРОКРУТКЕ ---------- */
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{animation:появление linear both;animation-timeline:view();animation-range:entry 6% cover 30%}
+  }
+}
+@keyframes появление{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;gap:28px;padding-top:32px}
+  .hero__shot{order:-1}
+  h1 span:nth-child(2){padding-left:0}
+  .split{grid-template-columns:1fr;gap:26px}
+  .section,.split,.hero{padding-left:20px;padding-right:20px}
+  .nav__menu{display:none}
+  .order{padding:24px 20px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}}
