@@ -4,6 +4,7 @@
    системные шрифты, воздух, ноль зависимостей.
    ============================================================ */
 :root {
+  color-scheme:light;
   --bg:      #EFE6D9;   /* тёплый песочный: фон не белый, как в референсе */
   --bg-deep: #E2D3BE;   /* нижняя половина градиента */
   --surface: #FBF7F1;   /* карточки — светлее фона, но не белые */
@@ -19,6 +20,28 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
+
+/* --- Доступность: добавлено 2026-08-26 по правилам Vercel --- */
+
+/* Видимое кольцо фокуса. Без него человек, идущий по сайту с клавиатуры,
+   не видит, на чём стоит. :focus-visible, а не :focus — кольцо появляется
+   от Tab, но не выскакивает от обычного клика мышью. */
+:where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+}
+
+/* Убирает паузу ~300 мс перед реакцией на тап (браузер ждёт второй тап для зума)
+   и синюю вспышку поверх кнопки в мобильном Safari. */
+html{-webkit-tap-highlight-color:transparent}
+:where(a,button,label,summary,[role=button],[role=tab],[role=radio]){touch-action:manipulation}
+
+/* balance не даёт заголовку оборваться одиноким словом на последней строке —
+   браузер сам подбирает, где переносить. pretty делает то же для абзацев. */
+h1,h2,h3{text-wrap:balance}
+p,li{text-wrap:pretty}
+
+
 html{scroll-behavior:smooth}
 body{
   font-family:var(--font);

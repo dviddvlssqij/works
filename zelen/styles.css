@@ -4,6 +4,7 @@
    Кофейня — тёплый песок, студия — тёмное с латунью, здесь — прохладный зелёный.
    ============================================================ */
 :root{
+  color-scheme:light;
   --bg:#F1F2EE;
   --surface:#FFFFFF;
   --ink:#22271F;        /* глубокий зелёно-чёрный, не чистый чёрный */
@@ -15,6 +16,28 @@
   --ease:cubic-bezier(.22,1,.36,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
+
+/* --- Доступность: добавлено 2026-08-26 по правилам Vercel --- */
+
+/* Видимое кольцо фокуса. Без него человек, идущий по сайту с клавиатуры,
+   не видит, на чём стоит. :focus-visible, а не :focus — кольцо появляется
+   от Tab, но не выскакивает от обычного клика мышью. */
+:where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+}
+
+/* Убирает паузу ~300 мс перед реакцией на тап (браузер ждёт второй тап для зума)
+   и синюю вспышку поверх кнопки в мобильном Safari. */
+html{-webkit-tap-highlight-color:transparent}
+:where(a,button,label,summary,[role=button],[role=tab],[role=radio]){touch-action:manipulation}
+
+/* balance не даёт заголовку оборваться одиноким словом на последней строке —
+   браузер сам подбирает, где переносить. pretty делает то же для абзацев. */
+h1,h2,h3{text-wrap:balance}
+p,li{text-wrap:pretty}
+
+
 html{scroll-behavior:smooth}
 body{
   font-family:var(--font);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;
@@ -56,7 +79,7 @@ h1 span:nth-child(2){padding-left:.5em;color:var(--dim)}
 
 .btn{display:inline-block;padding:13px 28px;border-radius:100px;font-size:15px;font-weight:500;
      text-decoration:none;border:1px solid var(--line);color:var(--ink);
-     transition:all .3s var(--ease)}
+     transition:border-color .3s var(--ease),color .3s var(--ease)}
 .btn:hover{border-color:var(--accent)}
 .btn--solid{background:var(--ink);color:var(--bg);border-color:transparent}
 .btn--solid:hover{background:var(--accent);transform:translateY(-2px)}
@@ -102,7 +125,7 @@ h2{font-size:clamp(28px,4.6vw,42px);font-weight:600;letter-spacing:-.03em;line-h
 .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:13px}
 .chip{font-family:inherit;font-size:14px;background:transparent;color:var(--ink);
       border:1px solid var(--line);border-radius:100px;padding:9px 17px;cursor:pointer;
-      transition:all .25s var(--ease)}
+      transition:border-color .25s var(--ease),background-color .25s var(--ease),color .25s var(--ease)}
 .chip:hover{border-color:var(--dim)}
 .chip.is-active{background:var(--accent);border-color:var(--accent);color:#F1F2EE;font-weight:500}
 .order__result{border-top:1px solid var(--line);padding-top:24px}

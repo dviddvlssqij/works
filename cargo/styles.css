@@ -4,6 +4,7 @@
    Цифры моноширинным — язык логистики: трек-номера, вес, сроки.
    ============================================================ */
 :root{
+  color-scheme:dark;
   --bg:#14161A;
   --surface:#1C1F26;
   --raise:#232730;
@@ -21,6 +22,28 @@
   --soft:cubic-bezier(.16,.84,.28,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
+
+/* --- Доступность: добавлено 2026-08-26 по правилам Vercel --- */
+
+/* Видимое кольцо фокуса. Без него человек, идущий по сайту с клавиатуры,
+   не видит, на чём стоит. :focus-visible, а не :focus — кольцо появляется
+   от Tab, но не выскакивает от обычного клика мышью. */
+:where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{
+  outline:2px solid var(--acc);
+  outline-offset:3px;
+}
+
+/* Убирает паузу ~300 мс перед реакцией на тап (браузер ждёт второй тап для зума)
+   и синюю вспышку поверх кнопки в мобильном Safari. */
+html{-webkit-tap-highlight-color:transparent}
+:where(a,button,label,summary,[role=button],[role=tab],[role=radio]){touch-action:manipulation}
+
+/* balance не даёт заголовку оборваться одиноким словом на последней строке —
+   браузер сам подбирает, где переносить. pretty делает то же для абзацев. */
+h1,h2,h3{text-wrap:balance}
+p,li{text-wrap:pretty}
+
+
 html{scroll-behavior:smooth}
 body{font-family:var(--font);background:var(--bg);color:var(--text);
      line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -199,7 +222,12 @@ h3{font-size:18px;font-weight:600;letter-spacing:-.015em;margin-bottom:8px}
 .field__row{display:flex;align-items:center;gap:20px}
 .field__hint{font-size:12.5px;color:var(--mute);margin-top:10px}
 input[type=range]{flex:1;-webkit-appearance:none;appearance:none;height:4px;border-radius:2px;
-  background:linear-gradient(90deg,var(--acc) var(--fill,5%),rgba(233,231,226,.14) var(--fill,5%));outline:none}
+  background:linear-gradient(90deg,var(--acc) var(--fill,5%),rgba(233,231,226,.14) var(--fill,5%))}
+/* Обводку у дорожки убираем, но взамен подсвечиваем бегунок — иначе
+   с клавиатуры не видно, что ползунок выбран. */
+input[type=range]:focus{outline:none}
+input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--acc)}
+input[type=range]:focus-visible::-moz-range-thumb{box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--acc)}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;
   background:var(--text);cursor:pointer;border:4px solid var(--acc)}
 input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--text);
