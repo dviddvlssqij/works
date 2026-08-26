@@ -8,7 +8,7 @@
   --bg:#F1F2EE;
   --surface:#FFFFFF;
   --ink:#22271F;        /* глубокий зелёно-чёрный, не чистый чёрный */
-  --dim:#6B7266;
+  --dim:#686F64;
   --accent:#3E5138;     /* приглушённый лесной */
   --line:rgba(34,39,31,.12);
   --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue","Segoe UI",system-ui,sans-serif;
@@ -36,6 +36,26 @@ html{-webkit-tap-highlight-color:transparent}
    браузер сам подбирает, где переносить. pretty делает то же для абзацев. */
 h1,h2,h3{text-wrap:balance}
 p,li{text-wrap:pretty}
+
+/* <picture> — это обёртка для выбора формата, а не элемент раскладки.
+   display:contents убирает её из потока целиком, и картинка внутри ведёт себя
+   ровно так же, как вела до обёртки: height:100% и object-fit продолжают работать. */
+picture{display:contents}
+
+
+/* Цель для пальца не должна быть меньше 44×44 — иначе человек промахивается.
+   Правило включается только на тач-экранах: `pointer: coarse` — это «указатель
+   грубый», то есть палец. На мыши курсор точный, и подгонять высоту незачем,
+   поэтому вид на компьютере остаётся ровно таким, как нарисован. */
+@media (pointer: coarse){
+  :where(.btn,.chip,.nav__cta){
+    min-height:44px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+  }
+}
+
 
 
 html{scroll-behavior:smooth}

@@ -10,7 +10,7 @@
   --raise:#232730;
   --text:#E9E7E2;
   --dim:#9AA0AA;
-  --mute:#6C737F;
+  --mute:#7A818E;
   --line:rgba(233,231,226,.10);
   --acc:#E1683A;          /* ржавый оранжевый контейнера, не неон */
   --acc-soft:rgba(225,104,58,.12);
@@ -42,6 +42,20 @@ html{-webkit-tap-highlight-color:transparent}
    браузер сам подбирает, где переносить. pretty делает то же для абзацев. */
 h1,h2,h3{text-wrap:balance}
 p,li{text-wrap:pretty}
+
+/* Цель для пальца не должна быть меньше 44×44 — иначе человек промахивается.
+   Правило включается только на тач-экранах: `pointer: coarse` — это «указатель
+   грубый», то есть палец. На мыши курсор точный, и подгонять высоту незачем,
+   поэтому вид на компьютере остаётся ровно таким, как нарисован. */
+@media (pointer: coarse){
+  :where(.btn,.chip,.nav__cta){
+    min-height:44px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+  }
+}
+
 
 
 html{scroll-behavior:smooth}
