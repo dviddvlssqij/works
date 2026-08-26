@@ -1,0 +1,241 @@
+/* ============================================================
+   ВАНІЛЬ — кондитерська майстерня
+   Сьома палітра портфоліо: порцеляна з приглушеною вишнею.
+   «Зерно» — тепла охра, «Лист» — холодний камінь, тут — рожевувата
+   порцеляна. Усі кольори перевірені на контраст ДО написання коду.
+   ============================================================ */
+:root{
+  color-scheme:light;
+  --bg:#F7F3F1;        /* порцеляна, ледь рожева — не жовтий пісок «Зерна» */
+  --surface:#FFFFFF;
+  --tint:#F1EAE7;      /* смуга для парних секцій */
+  --ink:#2A1E24;       /* темна слива замість чорного — 14.54:1 */
+  --dim:#6A5A61;       /* 5.86:1 */
+  --mute:#74656B;      /* 4.99:1 на тлі, 4.63:1 на підкладці — рахували по гіршому */
+  --acc:#8E3B52;       /* приглушена вишня — 6.57:1 */
+  --line:rgba(42,30,36,.12);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue","Segoe UI",system-ui,sans-serif;
+  --max:1120px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* --- Доступність: домашня заготовка, стоїть на всіх роботах --- */
+
+/* Видиме кільце фокуса. Без нього людина, яка йде сторінкою з клавіатури,
+   не бачить, де стоїть. :focus-visible, а не :focus — кільце з'являється
+   від Tab, але не вискакує від звичайного кліку мишею. */
+:where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{
+  outline:2px solid var(--acc);
+  outline-offset:3px;
+}
+html{-webkit-tap-highlight-color:transparent;scroll-behavior:smooth}
+:where(a,button,label,summary,[role=button]){touch-action:manipulation}
+h1,h2,h3{text-wrap:balance}
+p,li{text-wrap:pretty}
+picture{display:contents}
+
+/* Ціль для пальця не менша за 44×44. Тільки на тач-екранах:
+   на миші курсор точний, і підганяти висоту нема потреби. */
+@media (pointer: coarse){
+  :where(.btn,.nav__cta,.fills li){min-height:44px;display:inline-flex;align-items:center}
+  .btn,.nav__cta{justify-content:center}
+
+  /* Доріжка повзунка — 4 пікселі заввишки, пальцем у неї не влучиш.
+     Даємо прозорі поля згори й знизу: зона натискання виростає до 44,
+     а виглядає доріжка так само тонкою. */
+  input[type=range]{padding:22px 0;background-clip:content-box}
+  /* Галочка з підписом — це одна ціль, і вона теж має бути не менша за 44. */
+  .check{min-height:44px}
+}
+
+body{font-family:var(--font);background:var(--bg);color:var(--ink);
+     line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.num{font-variant-numeric:tabular-nums}
+img{max-width:100%;height:auto;display:block}
+
+/* ---------- ШАПКА ---------- */
+.nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:26px;
+     max-width:var(--max);margin:0 auto;padding:16px 24px;
+     background:rgba(247,243,241,.86);backdrop-filter:blur(12px);
+     border-bottom:1px solid var(--line)}
+.nav a{color:var(--dim);text-decoration:none;font-size:14.5px;
+       transition:color .25s var(--ease)}
+.nav a:hover{color:var(--ink)}
+.nav__logo{font-weight:600;font-size:15px;letter-spacing:.28em;color:var(--ink)!important;margin-right:auto}
+.nav__cta{border:1px solid var(--line);border-radius:100px;padding:9px 18px;
+          color:var(--ink)!important;
+          transition:border-color .25s var(--ease),background-color .25s var(--ease)}
+.nav__cta:hover{border-color:var(--acc);background:rgba(142,59,82,.06)}
+@media (max-width:860px){ .nav a:not(.nav__logo):not(.nav__cta){display:none} }
+
+/* ---------- ПЕРШИЙ ЕКРАН ---------- */
+.hero{max-width:var(--max);margin:0 auto;padding:52px 24px 90px;
+      display:grid;grid-template-columns:1.06fr .94fr;gap:0 48px;align-items:center}
+.eyebrow{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+         color:var(--acc);margin-bottom:18px}
+h1{font-size:clamp(40px,6.2vw,72px);line-height:1.02;letter-spacing:-.035em;font-weight:600}
+.lead{font-size:clamp(15.5px,1.5vw,17px);color:var(--dim);max-width:44ch;margin:22px 0 30px}
+.hero__act{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:44px}
+
+.btn{display:inline-block;padding:13px 26px;border-radius:100px;font-size:15px;
+     font-weight:500;text-decoration:none;color:var(--ink);
+     border:1px solid var(--line);background:transparent;font-family:inherit;cursor:pointer;
+     transition:border-color .3s var(--ease),background-color .3s var(--ease),color .3s var(--ease)}
+.btn:hover{border-color:var(--acc)}
+.btn--main{background:var(--acc);border-color:var(--acc);color:#FFF8F6}
+.btn--main:hover{background:#7C2F45;border-color:#7C2F45}
+
+.facts{display:flex;flex-wrap:wrap;gap:36px}
+.facts dt{font-size:26px;font-weight:600;letter-spacing:-.02em}
+.facts dd{font-size:13px;color:var(--mute);margin-top:2px}
+
+.hero__pic img{border-radius:20px}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;padding:28px 20px 56px;gap:28px}
+  .hero__pic{order:-1}
+  .facts{gap:26px}
+  /* На телефоні знімок стоїть першим — і якщо не обмежити висоту, він займає
+     весь екран, а заголовок іде під згин. Людина бачить гарне фото й не знає,
+     що це за сторінка. Ріжемо по висоті, кадр тримаємо по центру. */
+  .hero__pic img{max-height:46vh;width:100%;object-fit:cover;object-position:center 62%}
+}
+
+/* ---------- СЕКЦІЇ ---------- */
+.sec{max-width:var(--max);margin:0 auto;padding:80px 24px}
+.sec--tint{max-width:none;background:var(--tint)}
+.sec--tint>*{max-width:var(--max);margin-left:auto;margin-right:auto}
+.sec__head{display:flex;flex-wrap:wrap;justify-content:space-between;
+           align-items:flex-end;gap:26px;margin-bottom:40px}
+h2{font-size:clamp(28px,3.6vw,44px);line-height:1.06;letter-spacing:-.03em;font-weight:600}
+.sec__note{font-size:14.5px;color:var(--dim);max-width:38ch}
+
+/* ---------- ГАЛЕРЕЯ ---------- */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.shot{padding:0;border:0;background:none;cursor:zoom-in;border-radius:16px;
+      overflow:hidden;position:relative;line-height:0}
+.shot img{width:100%;height:100%;object-fit:cover;
+          transition:transform .7s var(--ease),filter .4s var(--ease)}
+.shot--tall{grid-row:span 2}
+.shot::after{content:"";position:absolute;inset:0;border-radius:16px;
+             box-shadow:inset 0 0 0 1px var(--line);pointer-events:none}
+.shot:hover img{transform:scale(1.04)}
+@media (max-width:860px){ .grid{grid-template-columns:repeat(2,1fr);gap:10px} }
+@media (max-width:480px){ .grid{grid-template-columns:1fr} .shot--tall{grid-row:auto} }
+
+/* ---------- АСОРТИМЕНТ ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;
+      padding:24px 22px;display:flex;flex-direction:column;gap:10px}
+.card h3{font-size:19px;font-weight:600;letter-spacing:-.015em}
+.card__p{font-size:14px;color:var(--dim);flex-grow:1}
+.card__price{font-size:15px;font-weight:600;color:var(--acc)}
+
+/* ---------- НАЧИНКИ ---------- */
+/* Сітка, а не список у тексті: у майстрів ніші їх буває вісімнадцять,
+   і суцільним переліком людина дочитує до десятого й губиться. */
+.fills{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+.fills li{display:flex;align-items:center;gap:11px;background:var(--surface);
+          border:1px solid var(--line);border-radius:12px;padding:13px 16px;font-size:14.5px}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--c);flex-shrink:0}
+
+/* ---------- УМОВИ + КАЛЬКУЛЯТОР ---------- */
+.terms{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:start}
+.rows{display:flex;flex-direction:column}
+.rows>div{display:flex;gap:18px;padding:15px 0;border-bottom:1px solid var(--line)}
+.rows dt{flex:0 0 150px;font-size:14px;color:var(--mute)}
+.rows dd{display:flex;flex-direction:column;gap:2px}
+.rows dd b{font-size:16px;font-weight:600}
+.rows dd span{font-size:13.5px;color:var(--dim)}
+
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:18px;
+      padding:26px;display:flex;flex-direction:column;gap:8px;position:sticky;top:80px}
+.calc label{font-size:14px;font-weight:500;margin-top:12px}
+.field__row{display:flex;align-items:center;gap:16px}
+.calc output{font-size:15px;font-weight:600;min-width:64px;text-align:right}
+
+input[type=range]{flex:1;-webkit-appearance:none;appearance:none;height:4px;border-radius:2px;
+  background:linear-gradient(90deg,var(--acc) var(--fill,22%),rgba(42,30,36,.14) var(--fill,22%))}
+input[type=range]:focus{outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;
+  border-radius:50%;background:var(--surface);cursor:pointer;border:4px solid var(--acc)}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;
+  background:var(--surface);cursor:pointer;border:4px solid var(--acc)}
+/* Обводку доріжки прибрано, тож підсвічуємо повзунок — інакше
+   з клавіатури не видно, що його обрано. */
+input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px var(--surface),0 0 0 5px var(--acc)}
+input[type=range]:focus-visible::-moz-range-thumb{box-shadow:0 0 0 3px var(--surface),0 0 0 5px var(--acc)}
+
+select,input[type=text],input[type=date],textarea{
+  font-family:inherit;font-size:15px;color:var(--ink);background:var(--surface);
+  border:1px solid var(--line);border-radius:10px;padding:13px;width:100%}
+textarea{resize:vertical}
+.check{display:flex;align-items:center;gap:9px;font-weight:400!important;font-size:14px}
+.check input{width:18px;height:18px;accent-color:var(--acc)}
+.check span{color:var(--mute)}
+
+.calc__out{display:flex;align-items:baseline;gap:12px;margin-top:18px;
+           padding-top:16px;border-top:1px solid var(--line)}
+.calc__out span{font-size:14px;color:var(--dim)}
+.calc__out b{margin-left:auto;font-size:27px;font-weight:600;letter-spacing:-.02em}
+.calc__note{font-size:12.5px;color:var(--mute);margin-top:10px}
+
+@media (max-width:860px){ .terms{grid-template-columns:1fr;gap:28px} .calc{position:static} }
+
+/* ---------- ЗАМОВЛЕННЯ ---------- */
+.order{display:grid;grid-template-columns:.95fr 1.05fr;gap:48px;align-items:start}
+.form{display:flex;flex-direction:column;gap:6px;background:var(--surface);
+      border:1px solid var(--line);border-radius:18px;padding:28px}
+.form label{font-size:14px;font-weight:500;margin-top:12px}
+.form__prev{font-size:13.5px;color:var(--dim);background:var(--tint);
+            border-radius:10px;padding:13px 15px;margin-top:20px;white-space:pre-line}
+.form__act{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.form__note{font-size:12.5px;color:var(--mute);margin-top:12px}
+@media (max-width:860px){ .order{grid-template-columns:1fr;gap:28px} }
+
+/* ---------- ПІДВАЛ ---------- */
+.foot{border-top:1px solid var(--line);margin-top:20px}
+.foot__row{max-width:var(--max);margin:0 auto;padding:30px 24px 8px;
+           display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;
+           align-items:center;font-size:14px;color:var(--dim)}
+.foot__logo{font-weight:600;letter-spacing:.28em;color:var(--ink)}
+.foot__demo{max-width:var(--max);margin:0 auto;padding:0 24px 34px;
+            font-size:12.5px;color:var(--mute);max-width:70ch}
+
+/* ---------- ЗБІЛЬШЕННЯ ФОТО ---------- */
+/* Новий прийом цієї роботи. У майстрів ніші по 8–13 фото, і вони
+   тонуть в оголошенні. Тут їх можна роздивитись, і без жодної бібліотеки. */
+.lb{position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;
+    background:rgba(28,20,24,.92);backdrop-filter:blur(6px);padding:5vh 4vw}
+.lb[hidden]{display:none}
+.lb__img{max-width:100%;max-height:90vh;border-radius:12px;object-fit:contain}
+.lb__x,.lb__nav{position:absolute;background:rgba(255,255,255,.1);border:0;color:#F7F3F1;
+                cursor:pointer;border-radius:50%;width:46px;height:46px;font-size:22px;
+                line-height:1;display:flex;align-items:center;justify-content:center;
+                transition:background-color .25s var(--ease)}
+.lb__x:hover,.lb__nav:hover{background:rgba(255,255,255,.22)}
+.lb__x{top:18px;right:18px;font-size:17px}
+.lb__nav--prev{left:14px}
+.lb__nav--next{right:14px}
+.lb__count{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
+           color:rgba(247,243,241,.72);font-size:13px}
+@media (max-width:600px){
+  .lb__nav{width:42px;height:42px}
+  .lb__nav--prev{left:6px} .lb__nav--next{right:6px}
+}
+
+/* ---------- РУХ ---------- */
+/* М'яке проявлення секцій. Обгорнуто двічі: там, де прокруткових
+   таймлайнів немає, вміст просто видно; і рух вимкнено повністю
+   для тих, кому від нього зле. */
+@media (prefers-reduced-motion:no-preference){
+  @supports (animation-timeline:view()){
+    .sec__head,.card,.fills li,.rows>div,.calc,.form,.shot{
+      animation:up .7s var(--ease) both;
+      animation-timeline:view();
+      animation-range:entry 6% entry 42%;
+    }
+  }
+}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}

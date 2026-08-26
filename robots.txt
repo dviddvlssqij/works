@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://works-32x.pages.dev/sitemap.xml

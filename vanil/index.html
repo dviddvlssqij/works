@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ВАНІЛЬ — торти на замовлення</title>
+<meta name="description" content="Торти, бенто, чізкейки та капкейки на замовлення. Начинки, ціни та умови — одразу на сторінці, без «ціни в приват».">
+<meta name="theme-color" content="#F7F3F1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23F7F3F1'/><circle cx='16' cy='18' r='7' fill='none' stroke='%238E3B52' stroke-width='2'/><path d='M16 11 V6' stroke='%238E3B52' stroke-width='2' stroke-linecap='round'/></svg>">
+<meta property="og:title" content="ВАНІЛЬ — торти на замовлення">
+<meta property="og:description" content="Начинки, ціни та умови одразу на сторінці. Замовлення — однією кнопкою.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://works-32x.pages.dev/vanil/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav__logo" href="#top">ВАНІЛЬ</a>
+  <a href="#works">Роботи</a>
+  <a href="#what">Що печу</a>
+  <a href="#fill">Начинки</a>
+  <a href="#price">Ціни</a>
+  <a class="nav__cta" href="#order">Замовити</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero__text">
+    <span class="eyebrow">Кондитерська майстерня · Київ</span>
+    <h1>Торт, який<br>не соромно<br>виносити.</h1>
+    <p class="lead">Печу на замовлення з 2019 року. Начинки, ціни та умови — нижче на сторінці, писати за прайсом не треба.</p>
+    <div class="hero__act">
+      <a class="btn btn--main" href="#order">Замовити торт</a>
+      <a class="btn" href="#works">Подивитись роботи</a>
+    </div>
+    <dl class="facts">
+      <div><dt class="num">від 750</dt><dd>грн за кілограм</dd></div>
+      <div><dt class="num">14</dt><dd>начинок на вибір</dd></div>
+      <div><dt class="num">3 дні</dt><dd>мінімальний строк</dd></div>
+    </dl>
+  </div>
+  <figure class="hero__pic">
+    <picture>
+      <source srcset="media/hero.webp" type="image/webp">
+      <img src="media/hero.jpg" alt="Торт з ніжною глазур'ю на сонячному світлі" width="1200" height="1800" fetchpriority="high">
+    </picture>
+  </figure>
+</header>
+
+<!-- ГОЛОВНЕ: роботи. Заради них люди й заходять -->
+<section class="sec" id="works">
+  <div class="sec__head">
+    <div>
+      <span class="eyebrow">Роботи</span>
+      <h2>Що вже спекла</h2>
+    </div>
+    <p class="sec__note">Натисніть на будь-яке фото, щоб роздивитись більше. Це справжні замовлення, не каталог з інтернету.</p>
+  </div>
+
+  <div class="grid" id="grid">
+    <button aria-label="Збільшити: Білий торт на скляній підставці" class="shot shot--tall" data-i="0"><picture><source srcset="media/w1.webp" type="image/webp"><img src="media/w1.jpg" alt="Білий торт на скляній підставці" loading="lazy" width="820" height="1230"></picture></button>
+    <button aria-label="Збільшити: Рожевий бісквіт з полуницею" class="shot" data-i="1"><picture><source srcset="media/w5.webp" type="image/webp"><img src="media/w5.jpg" alt="Рожевий бісквіт з полуницею" loading="lazy" width="820" height="548"></picture></button>
+    <button aria-label="Збільшити: Торт з текстурною глазур'ю у коробці" class="shot shot--tall" data-i="2"><picture><source srcset="media/w2.webp" type="image/webp"><img src="media/w2.jpg" alt="Торт з текстурною глазур'ю у коробці" loading="lazy" width="820" height="1230"></picture></button>
+    <button aria-label="Збільшити: Білий торт з ягодами" class="shot" data-i="3"><picture><source srcset="media/w7.webp" type="image/webp"><img src="media/w7.jpg" alt="Білий торт з ягодами" loading="lazy" width="820" height="547"></picture></button>
+    <button aria-label="Збільшити: Шоколадний торт у розрізі" class="shot shot--tall" data-i="4"><picture><source srcset="media/w6.webp" type="image/webp"><img src="media/w6.jpg" alt="Шоколадний торт у розрізі" loading="lazy" width="820" height="1230"></picture></button>
+    <button aria-label="Збільшити: Двоярусний торт з меренгою" class="shot shot--tall" data-i="5"><picture><source srcset="media/w4.webp" type="image/webp"><img src="media/w4.jpg" alt="Двоярусний торт з меренгою" loading="lazy" width="820" height="1230"></picture></button>
+    <button aria-label="Збільшити: Шматок торта на тарілці" class="shot" data-i="6"><picture><source srcset="media/w9.webp" type="image/webp"><img src="media/w9.jpg" alt="Шматок торта на тарілці" loading="lazy" width="820" height="547"></picture></button>
+    <button aria-label="Збільшити: Шматок торта на блюдці з квітами" class="shot shot--tall" data-i="7"><picture><source srcset="media/w3.webp" type="image/webp"><img src="media/w3.jpg" alt="Шматок торта на блюдці з квітами" loading="lazy" width="820" height="1230"></picture></button>
+    <button aria-label="Збільшити: Шматок десерту з ложкою" class="shot shot--tall" data-i="8"><picture><source srcset="media/w8.webp" type="image/webp"><img src="media/w8.jpg" alt="Шматок десерту з ложкою" loading="lazy" width="820" height="1230"></picture></button>
+  </div>
+</section>
+
+<section class="sec sec--tint" id="what">
+  <div class="sec__head">
+    <div>
+      <span class="eyebrow">Асортимент</span>
+      <h2>Що можна замовити</h2>
+    </div>
+    <p class="sec__note">П'ять позицій, кожна зі своєю ціною та мінімальним замовленням. Без «уточнюйте в приват».</p>
+  </div>
+
+  <div class="cards">
+    <article class="card">
+      <h3>Торт</h3>
+      <p class="card__p">Будь-яка вага від 1,5 кг. Оформлення обговорюємо окремо.</p>
+      <span class="card__price num">від 750 грн/кг</span>
+    </article>
+    <article class="card">
+      <h3>Бенто-торт</h3>
+      <p class="card__p">0,5 кг у святковій коробці зі свічкою. Готовий подарунок.</p>
+      <span class="card__price num">650 грн</span>
+    </article>
+    <article class="card">
+      <h3>Чізкейк</h3>
+      <p class="card__p">Порційний, 200 г. Мінімальне замовлення — 4 штуки.</p>
+      <span class="card__price num">190 грн/шт</span>
+    </article>
+    <article class="card">
+      <h3>Капкейки</h3>
+      <p class="card__p">Набір 6 штук, начинка на вибір. Можна асорті.</p>
+      <span class="card__price num">480 грн/набір</span>
+    </article>
+    <article class="card">
+      <h3>Трайфли</h3>
+      <p class="card__p">Десерт у склянці, 250 г. Мінімальне замовлення — 6 штук.</p>
+      <span class="card__price num">110 грн/шт</span>
+    </article>
+  </div>
+</section>
+
+<!-- Начинки сіткою, а не списком у тексті: це головна біль ніші -->
+<section class="sec" id="fill">
+  <div class="sec__head">
+    <div>
+      <span class="eyebrow">Начинки</span>
+      <h2>Чотирнадцять на вибір</h2>
+    </div>
+    <p class="sec__note">Усі входять у базову ціну. Комбінувати два смаки в одному торті можна, доплати немає.</p>
+  </div>
+
+  <ul class="fills">
+    <li><span class="dot" style="--c:#8E3B52"></span>Вишня — шоколад</li>
+    <li><span class="dot" style="--c:#B3543F"></span>Солона карамель</li>
+    <li><span class="dot" style="--c:#C46A7E"></span>Малина — ваніль</li>
+    <li><span class="dot" style="--c:#7A5C3E"></span>Медовик</li>
+    <li><span class="dot" style="--c:#3E3A38"></span>Орео</li>
+    <li><span class="dot" style="--c:#9C7A4A"></span>Наполеон</li>
+    <li><span class="dot" style="--c:#6E7F4E"></span>Фісташка — вишня</li>
+    <li><span class="dot" style="--c:#8A6E4B"></span>Снікерс</li>
+    <li><span class="dot" style="--c:#C08A54"></span>Банан — карамель</li>
+    <li><span class="dot" style="--c:#4E5E7A"></span>Чорниця — лимон</li>
+    <li><span class="dot" style="--c:#D0A26B"></span>Рафаелло</li>
+    <li><span class="dot" style="--c:#B8703F"></span>Персик — маракуя</li>
+    <li><span class="dot" style="--c:#7C4A6B"></span>Червоний оксамит</li>
+    <li><span class="dot" style="--c:#A85C4A"></span>Пекан — карамель</li>
+  </ul>
+</section>
+
+<!-- Умови, які зазвичай ховають у суцільний абзац -->
+<section class="sec sec--tint" id="price">
+  <div class="sec__head">
+    <div>
+      <span class="eyebrow">Умови</span>
+      <h2>Скільки коштує<br>і від чого залежить</h2>
+    </div>
+    <p class="sec__note">Ціна складається з трьох речей. Нічого не додається «потім».</p>
+  </div>
+
+  <div class="terms">
+    <dl class="rows">
+      <div><dt>Основа</dt><dd><b class="num">750 грн/кг</b><span>будь-яка начинка з переліку</span></dd></div>
+      <div><dt>Мінімальна вага</dt><dd><b class="num">1,5 кг</b><span>менше — тільки бенто-торт</span></dd></div>
+      <div><dt>Оформлення</dt><dd><b class="num">від 150 грн</b><span>ягоди, шоколад, квіти, топер, напис</span></dd></div>
+      <div><dt>Строк</dt><dd><b class="num">3 дні</b><span>весільний торт — за два тижні</span></dd></div>
+      <div><dt>Терміново</dt><dd><b class="num">+400 грн</b><span>якщо треба на завтра чи післязавтра</span></dd></div>
+      <div><dt>Передоплата</dt><dd><b class="num">30%</b><span>решта при отриманні</span></dd></div>
+      <div><dt>Доставка</dt><dd><b class="num">Київ</b><span>самовивіз безкоштовно, доставка від 150 грн</span></dd></div>
+    </dl>
+
+    <aside class="calc">
+      <span class="eyebrow">Прикинути ціну</span>
+      <label for="kg">Вага торта</label>
+      <div class="field__row">
+        <input type="range" id="kg" min="1.5" max="6" step="0.5" value="2.5">
+        <output class="num" id="kgOut" for="kg">2,5 кг</output>
+      </div>
+
+      <label for="dec">Оформлення</label>
+      <select id="dec">
+        <option value="0">Без декору — 0 грн</option>
+        <option value="150" selected>Просте: ягоди або шоколад — 150 грн</option>
+        <option value="350">Складне: квіти, топер, напис — 350 грн</option>
+        <option value="700">Ярусний або з мастикою — 700 грн</option>
+      </select>
+
+      <label class="check"><input type="checkbox" id="fast"> Потрібно терміново <span>(+400 грн)</span></label>
+
+      <div class="calc__out">
+        <span>Орієнтовно</span>
+        <b class="num" id="total">2 275 грн</b>
+      </div>
+      <p class="calc__note" id="hint">Це орієнтир, а не рахунок. Точну суму назву після того, як обговоримо оформлення.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="sec" id="order">
+  <div class="order">
+    <div>
+      <span class="eyebrow">Замовлення</span>
+      <h2>Напишіть — відповім<br>протягом години</h2>
+      <p class="lead">Заповніть, і повідомлення відкриється вже готовим. Нічого набирати не треба.</p>
+    </div>
+
+    <form class="form" id="form">
+      <label for="fName">Як до вас звертатись</label>
+      <input type="text" id="fName" name="name" autocomplete="name" placeholder="Наприклад, Оксана…">
+
+      <label for="fDate">На яку дату</label>
+      <input type="date" id="fDate" name="date">
+
+      <label for="fFill">Начинка</label>
+      <select id="fFill">
+        <option>Ще не обрала — підкажіть</option>
+        <option>Вишня — шоколад</option>
+        <option>Солона карамель</option>
+        <option>Малина — ваніль</option>
+        <option>Медовик</option>
+        <option>Орео</option>
+        <option>Наполеон</option>
+        <option>Фісташка — вишня</option>
+        <option>Снікерс</option>
+        <option>Банан — карамель</option>
+        <option>Чорниця — лимон</option>
+        <option>Рафаелло</option>
+        <option>Персик — маракуя</option>
+        <option>Червоний оксамит</option>
+        <option>Пекан — карамель</option>
+      </select>
+
+      <label for="fNote">Побажання</label>
+      <textarea id="fNote" rows="3" placeholder="Привід, колір, напис на торті…"></textarea>
+
+      <p class="form__prev" id="prev"></p>
+      <div class="form__act">
+        <a class="btn btn--main" id="toViber" href="#">Надіслати у Viber</a>
+        <a class="btn" id="toTg" href="#">Надіслати у Telegram</a>
+      </div>
+      <p class="form__note">Передоплата 30%. Якщо дата вільна — підтверджу одразу.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot__row">
+    <span class="foot__logo">ВАНІЛЬ</span>
+    <span>Київ · щодня з 9:00 до 20:00</span>
+  </div>
+  <p class="foot__demo">Демонстраційна сторінка. Зроблено як приклад того, як може виглядати сайт кондитера. Ціни та строки — типові для ніші, у справжнього майстра вони свої.</p>
+</footer>
+
+<!-- Збільшення фото. Показується тільки після натискання -->
+<div class="lb" id="lb" hidden>
+  <button class="lb__x" id="lbX" aria-label="Закрити">✕</button>
+  <button class="lb__nav lb__nav--prev" id="lbPrev" aria-label="Попереднє фото">‹</button>
+  <img class="lb__img" id="lbImg" alt="">
+  <button class="lb__nav lb__nav--next" id="lbNext" aria-label="Наступне фото">›</button>
+  <span class="lb__count num" id="lbCount"></span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

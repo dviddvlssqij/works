@@ -97,6 +97,13 @@ h1{font-size:clamp(40px,8vw,76px);font-weight:600;letter-spacing:-.04em;line-hei
 .work__vis--kofe{background:linear-gradient(150deg,#FAF8F5,#EFE9E1)}
 .work__vis--studio{background:linear-gradient(150deg,#141416,#0C0C0E)}
 .work__vis--zelen{background:linear-gradient(150deg,#F1F2EE,#E0E4DA)}
+.work__vis--vanil{background:linear-gradient(150deg,#F7F3F1,#E9DFDA)}
+.mini--porcelain{background:#FFF;border:1px solid rgba(42,30,36,.10);color:#2A1E24}
+/* Превью «Ванілі» — сетка снимков: именно ею работа и отличается */
+.mini__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:10px}
+.mini__grid i{aspect-ratio:1;border-radius:4px;background:#8E3B52;opacity:.16}
+.mini__grid i:nth-child(2),.mini__grid i:nth-child(4){opacity:.3}
+.mini__grid i:nth-child(5){opacity:.42}
 .work__vis--strata{background:linear-gradient(150deg,#1B2740,#0E1420)}
 .work__vis--cargo{background:linear-gradient(150deg,#232730,#14161A)}
 .mini--steel{background:#1C1F26;border:1px solid rgba(233,231,226,.09);color:#E9E7E2}
