@@ -408,3 +408,20 @@ h3{font-size:19px;font-weight:600;letter-spacing:-.015em;margin-bottom:10px}
   .say{padding:80px 20px}
   .settle-s .w{animation-range:entry calc(8% + var(--i)*2.6%) entry calc(42% + var(--i)*2.6%)}
 }
+
+/* ============================================================
+   ОБЩИЙ ВЫКЛЮЧАТЕЛЬ ДВИЖЕНИЯ
+   Отдельные правила легко забыть обернуть — а человеку, которому
+   от движения плохо, хватит одного пропущенного. Глушим всё разом:
+   и написанное, и то, что допишем потом.
+   Не 0, а 0.01ms — чтобы события вроде transitionend всё ещё
+   срабатывали и ничего не зависло на полпути.
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+}

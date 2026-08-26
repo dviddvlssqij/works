@@ -25,7 +25,16 @@
     const разом = Math.round(вага * ЦІНА_КГ) + дод + швидко;
 
     вихід.textContent = вага.toFixed(1).replace('.', ',') + ' кг';
-    сума.textContent = грн(разом);
+
+    // Якщо цифра справді змінилась — коротко підсвічуємо її. Без цього
+    // людина крутить повзунок і не помічає, що сума вже інша.
+    const нова = грн(разом);
+    if (сума.textContent && сума.textContent !== нова) {
+      сума.classList.remove('blink');
+      void сума.offsetWidth;          // перезапуск анімації: браузеру треба «моргнути»
+      сума.classList.add('blink');
+    }
+    сума.textContent = нова;
 
     // Заповнення доріжки повзунка: від 0% на 1,5 кг до 100% на 6 кг.
     const частка = ((вага - 1.5) / (6 - 1.5)) * 100;
@@ -161,4 +170,55 @@
     if (e.key === 'ArrowLeft') показати(поточне - 1);
     if (e.key === 'ArrowRight') показати(поточне + 1);
   });
+})();
+
+// ── 4. Вибір начинки прямо в сітці ─────────────────────────────────
+(function () {
+  const сітка = document.querySelector('.fills');
+  const підказка = document.getElementById('fillsHint');
+  const уФормі = document.getElementById('fFill');
+  if (!сітка || !уФормі) return;
+
+  const кнопки = [...сітка.querySelectorAll('button[data-fill]')];
+  const обрані = [];               // максимум два: у торті можна поєднати два смаки
+
+  function оновити() {
+    кнопки.forEach((к) =>
+      к.setAttribute('aria-pressed', обрані.includes(к.dataset.fill) ? 'true' : 'false'));
+
+    if (обрані.length === 0) {
+      підказка.textContent = '';
+    } else if (обрані.length === 1) {
+      підказка.textContent = 'Обрано: ' + обрані[0] + '. Можна додати другий смак — доплати немає.';
+    } else {
+      підказка.textContent = 'Обрано два смаки: ' + обрані.join(' і ') + '. Це вже готове замовлення — воно нижче у формі.';
+    }
+
+    // Підставляємо у форму. Якщо смаків два — беремо перший зі списку,
+    // а другий дописуємо в побажання: у select двох значень не буває.
+    const перший = обрані[0];
+    if (перший) {
+      const збіг = [...уФормі.options].findIndex((o) => o.text === перший);
+      if (збіг > -1) уФормі.selectedIndex = збіг;
+    }
+
+    const нотатка = document.getElementById('fNote');
+    if (нотатка) {
+      // Прибираємо попередній рядок про другий смак, щоб він не множився.
+      нотатка.value = нотатка.value.replace(/\n?Другий смак: [^\n]*/g, '');
+      if (обрані[1]) нотатка.value = (нотатка.value + '\nДругий смак: ' + обрані[1]).trim();
+    }
+
+    document.getElementById('form')
+      ?.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+
+  кнопки.forEach((к) => к.addEventListener('click', () => {
+    const смак = к.dataset.fill;
+    const де = обрані.indexOf(смак);
+    if (де > -1) обрані.splice(де, 1);
+    else if (обрані.length < 2) обрані.push(смак);
+    else { обрані.shift(); обрані.push(смак); }   // третій витісняє найстаріший
+    оновити();
+  }));
 })();

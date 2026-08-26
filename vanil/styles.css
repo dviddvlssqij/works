@@ -239,3 +239,81 @@ textarea{resize:vertical}
   }
 }
 @keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* ============================================================
+   ВІДГУК НА НАТИСКАННЯ
+   Не прикраса, а зворотний зв'язок: палець торкнувся — елемент
+   відповів. Саме цього бракує сторінці, яка виглядає «мертвою».
+   Пружна крива (cubic-bezier з перельотом) дає відчуття м'якого
+   матеріалу — доречне для кондитерської, а не різкий технічний клац.
+   ============================================================ */
+:root{ --spring:cubic-bezier(.34,1.56,.64,1) }
+
+@media (prefers-reduced-motion:no-preference){
+
+  /* Кнопки. Натиснув — просіла, відпустив — пружно повернулась. */
+  .btn,.nav__cta{transition:transform .38s var(--spring),
+                            background-color .3s var(--ease),
+                            border-color .3s var(--ease),
+                            color .3s var(--ease),
+                            box-shadow .3s var(--ease)}
+  .btn:active,.nav__cta:active{transform:scale(.955);transition-duration:.08s}
+  .btn--main:hover{box-shadow:0 8px 22px rgba(142,59,82,.26);transform:translateY(-1px)}
+
+  /* Картки товару й начинки — те саме, тільки делікатніше. */
+  .card,.fills button{transition:transform .38s var(--spring),
+                                 border-color .28s var(--ease),
+                                 background-color .28s var(--ease),
+                                 box-shadow .28s var(--ease)}
+  .card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(42,30,36,.07)}
+  .fills button:active{transform:scale(.96);transition-duration:.08s}
+
+  /* Фото в сітці: натискання «вдавлює» картку. */
+  .shot{transition:transform .38s var(--spring)}
+  .shot:active{transform:scale(.975);transition-duration:.08s}
+
+  /* Перегляд фото відкривається зі збільшенням, а не з'являється ривком. */
+  .lb{animation:lbIn .26s var(--ease) both}
+  .lb__img{animation:lbZoom .34s var(--spring) both}
+
+  /* Сума перераховується — цифра коротко підсвічується,
+     щоб було видно, що вона змінилась саме зараз. */
+  .calc__out b.blink{animation:blink .5s var(--ease)}
+}
+
+@keyframes lbIn{from{opacity:0}to{opacity:1}}
+@keyframes lbZoom{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+@keyframes blink{
+  0%{color:var(--acc);transform:translateY(-2px)}
+  100%{color:var(--ink);transform:none}
+}
+
+/* ---------- НАЧИНКИ СТАЛИ ВИБІРНИМИ ---------- */
+/* Було просто перелік. Тепер на них можна натиснути, і вибір
+   під'їжджає у форму замовлення — рух із користю, а не заради руху. */
+.fills button{font-family:inherit;font-size:14.5px;color:var(--ink);text-align:left;
+              display:flex;align-items:center;gap:11px;width:100%;cursor:pointer;
+              background:var(--surface);border:1px solid var(--line);
+              border-radius:12px;padding:13px 16px}
+.fills button:hover{border-color:rgba(142,59,82,.4)}
+.fills button[aria-pressed="true"]{border-color:var(--acc);background:rgba(142,59,82,.07)}
+.fills button[aria-pressed="true"] .dot{box-shadow:0 0 0 4px rgba(142,59,82,.16)}
+.dot{transition:box-shadow .3s var(--spring)}
+.fills__hint{font-size:13px;color:var(--mute);margin-top:14px;min-height:20px}
+
+/* ============================================================
+   ЗАГАЛЬНИЙ ВИМИКАЧ РУХУ
+   Окремі правила легко забути обгорнути — а людині, якій від руху
+   недобре, достатньо одного пропущеного. Тому глушимо все одразу
+   й назавжди: і те, що вже написано, і те, що допишемо потім.
+   Не 0, а 0.01ms — щоб події на кшталт transitionend усе ще спрацьовували
+   і нічого не зависло в половині стану.
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+}
