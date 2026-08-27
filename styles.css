@@ -194,3 +194,11 @@ h1{font-size:clamp(40px,8vw,76px);font-weight:600;letter-spacing:-.04em;line-hei
     scroll-behavior:auto!important;
   }
 }
+
+
+/* Ссылка на разбор ниши. Нужна не для красоты: без ссылки с главной
+   поисковик страницу не обойдёт, какой бы хорошей она ни была. */
+.pitch{max-width:var(--max);margin:0 auto 26px;padding:0 24px;font-size:15px;color:var(--dim)}
+.pitch a{color:var(--fg);text-underline-offset:4px;
+         transition:color .18s var(--ease)}
+.pitch a:hover{color:#FFF;transition-duration:.09s}
