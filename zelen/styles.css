@@ -191,3 +191,58 @@ h2{font-size:clamp(28px,4.6vw,42px);font-weight:600;letter-spacing:-.03em;line-h
     scroll-behavior:auto!important;
   }
 }
+
+
+/* ---------- ТРИ ФАКТА НА ПЕРВОМ ЭКРАНЕ ---------- */
+/* Заголовок обещает «приживётся» — факты это обещание подкрепляют.
+   Без них первый экран был красивым, но пустым по смыслу. */
+.facts{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:38px;
+       margin-top:34px;padding-top:26px;border-top:1px solid var(--line)}
+.facts dt{font-size:25px;font-weight:600;letter-spacing:-.02em}
+.facts dd{font-size:13px;color:var(--dim);margin-top:2px}
+.hero__act{display:flex;flex-wrap:wrap;gap:10px}
+.btn--solid{background:var(--accent);border-color:var(--accent);color:#F7F9F5}
+.btn--solid:hover{background:#334529;border-color:#334529}
+
+/* Секция «Уход» осталась без снимка — выравниваем в одну колонку,
+   иначе половина ширины пустует. */
+.split{grid-template-columns:1fr!important;max-width:66ch}
+
+/* ---------- ОТКЛИК НА НАЖАТИЕ ---------- */
+/* Было только проявление секций. Добавляем обратную связь, как на
+   остальных работах: вход быстрый, уход медленный. */
+@media (prefers-reduced-motion:no-preference){
+  .btn,.nav__cta,.chip{transition:border-color .18s var(--ease),
+                                  background-color .18s var(--ease),
+                                  color .18s var(--ease),
+                                  transform .34s cubic-bezier(.4,0,.2,1)}
+  .btn:hover,.nav__cta:hover,.chip:hover{transition-duration:.09s}
+  .btn:active,.nav__cta:active,.chip:active{transform:scale(.98);transition-duration:.12s}
+  .prod{transition:transform .34s cubic-bezier(.4,0,.2,1),box-shadow .34s cubic-bezier(.4,0,.2,1)}
+  .prod:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(34,39,31,.08);transition-duration:.09s}
+}
+@media (max-width:640px){ .facts{gap:24px} }
+
+
+/* Снимок героя был 713px при экране 900 — из-за него главная кнопка
+   и факты уезжали под сгиб. По шкале «одно действие видно без прокрутки»
+   стоит 6 баллов, и они терялись целиком.
+   Режем по высоте, кадр держим по центру: растение остаётся в кадре. */
+.hero__shot img{max-height:52vh;width:100%;object-fit:cover;object-position:center 58%}
+.hero{padding-bottom:52px}
+
+
+/* На телефоне блоки встают друг под друга, и того же 52vh уже много:
+   главная кнопка уезжала на 952 при экране 812. Режем сильнее —
+   растение в кадре остаётся, а действие поднимается на первый экран. */
+@media (max-width:860px){
+  .hero__shot img{max-height:30vh}
+  /* На телефоне действие поднимаем ВЫШЕ объяснения. Абзац поясняет,
+     кнопка действует — на маленьком экране объяснение может подождать,
+     а кнопка ждать не должна. */
+  .hero__foot{display:flex;flex-direction:column;gap:16px}
+  .hero__act{order:-1}
+  .hero{padding-bottom:36px}
+  .facts{gap:20px;margin-top:24px;padding-top:20px}
+  .facts dt{font-size:21px}
+}
