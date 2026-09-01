@@ -202,3 +202,22 @@ h1{font-size:clamp(40px,8vw,76px);font-weight:600;letter-spacing:-.04em;line-hei
 .pitch a{color:var(--fg);text-underline-offset:4px;
          transition:color .18s var(--ease)}
 .pitch a:hover{color:#FFF;transition-duration:.09s}
+
+/* ---------- Страница «не найдено» ----------
+   Cloudflare Pages сам отдаёт /404.html с кодом 404 на неизвестный адрес.
+   До этого чужой адрес возвращал 200 и главную — поисковик считал,
+   что страница существует, и засорял индекс. */
+.нет{min-height:100svh;display:grid;place-items:center;text-align:center;padding:32px}
+.нет__код{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--gray)}
+.нет__заг{margin-top:18px;font-size:clamp(30px,7vw,52px);font-weight:640;letter-spacing:-.025em;line-height:1.1}
+.нет__стр{margin-top:16px;color:var(--dim);max-width:44ch;margin-inline:auto}
+.нет__ссылки{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.нет__ссылки a{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 22px;border-radius:100px;border:1px solid var(--line);
+  color:var(--fg);text-decoration:none;background:var(--glass);
+  transition:border-color .18s var(--ease),background .18s var(--ease);
+}
+.нет__ссылки a:hover{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.06)}
+.нет__ссылки a:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+@media (pointer: coarse){ .нет__ссылки a{min-height:44px} }
