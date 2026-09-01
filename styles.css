@@ -245,3 +245,30 @@ h1{font-size:clamp(40px,8vw,76px);font-weight:600;letter-spacing:-.04em;line-hei
 }
 .doc__back:hover{border-color:rgba(255,255,255,.22)}
 .doc__back:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+
+/* ---------- Предложение на главной ----------
+   Сюда приходит каждый, кто нажал ссылку в шапке инстаграма.
+   До этого страница показывала работы и молчала о том, что делать дальше. */
+.offer{max-width:var(--max);margin:0 auto;padding:20px 24px 80px}
+.offer__box{
+  border:1px solid var(--line);border-radius:20px;background:var(--glass);
+  padding:clamp(26px,4vw,40px);
+}
+.offer h2{font-size:clamp(24px,4vw,34px);font-weight:640;letter-spacing:-.028em;line-height:1.12}
+.offer__lead{margin-top:16px;font-size:16px;color:var(--dim);max-width:56ch;line-height:1.7}
+.offer__rows{margin-top:26px;display:grid;gap:0}
+.offer__rows>div{display:flex;gap:20px;padding:14px 0;border-top:1px solid var(--line);flex-wrap:wrap}
+.offer__rows b{flex:0 0 156px;font-size:16px;font-weight:600}
+.offer__rows span{color:var(--dim);font-size:15px;min-width:200px;flex:1}
+.offer__act{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+.offer__act a{
+  display:inline-flex;align-items:center;justify-content:center;min-height:44px;
+  padding:13px 26px;border-radius:100px;font-size:15px;font-weight:500;
+  text-decoration:none;border:1px solid var(--line);color:var(--fg);
+  transition:border-color .18s var(--ease),background .18s var(--ease);
+}
+.offer__act a:hover{border-color:rgba(255,255,255,.26);background:rgba(255,255,255,.05)}
+.offer__act a:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+.offer__act a.is-main{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.offer__act a.is-main:hover{opacity:.9;background:var(--fg)}
+.offer__why{margin-top:22px;font-size:14px;color:var(--gray);max-width:60ch;line-height:1.65}
